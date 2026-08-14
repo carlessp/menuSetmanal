@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú del 14/8/2026 al 17/8/2026</title>
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#1c2733; --muted:#6b7785;
+  --line:#e3e8ee; --acc:#0f766e; --acc2:#134e4a; --danger:#b91c1c;
+  --ok:#16a34a; --warn:#d97706; --chip:#eef2f6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+header{padding:20px 24px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+header h1{margin:0 0 6px;font-size:1.5rem}
+header .meta{font-size:.92rem;opacity:.92}
+.wrap{max-width:1080px;margin:0 auto;padding:16px 24px 64px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem}
+.tabs button.active{background:var(--acc);border-color:var(--acc);color:#fff}
+section{display:none}
+section.active{display:block}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:20px;box-shadow:0 1px 2px rgba(20,40,60,.05)}
+h2{font-size:1.15rem;margin:0 0 12px}
+h3{font-size:1rem;margin:0}
+.badges{margin:8px 0 16px;font-size:.85rem;color:var(--muted)}
+
+/* ---------- Llista ---------- */
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.controls select,.controls button{border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:9px;font-size:.86rem;cursor:pointer}
+.sums{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.sum{background:var(--chip);border-radius:9px;padding:7px 12px;font-size:.84rem}
+.sum b{color:var(--acc)}
+.item{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;background:#fff}
+.item.checked{opacity:.55;background:var(--chip)}
+.item.checked .nom{text-decoration:line-through}
+.item input[type=checkbox]{margin-top:4px;width:18px;height:18px;accent-color:var(--acc);flex:0 0 18px}
+.item .body{flex:1;min-width:0}
+.item .nom{font-weight:600;font-size:.97rem}
+.item .descr{font-size:.85rem;color:var(--muted);margin-top:2px}
+.item .per{font-size:.82rem;color:var(--muted);margin-top:2px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.02em}
+.tag.fresc{background:#dcfce7;color:#166534}
+.tag.congelat{background:#dbeafe;color:#1e40af}
+.tag.conserva{background:#ffedd5;color:#9a3412}
+.tag.sec{background:#f3e8ff;color:#6b21a8}
+.tag.beguda{background:#ccfbf1;color:#115e59}
+.tag.gluten{background:#fef9c3;color:#854d0e}
+.tag.nogluten{background:#fecaca;color:#991b1b}
+.prices{margin-top:8px;border-top:1px dashed var(--line);padding-top:7px;font-size:.84rem}
+.prices .row{display:flex;gap:8px;align-items:center;padding:2px 0}
+.prices .sup{font-weight:700;width:96px;flex:0 0 96px}
+.prices .sup.escollit{color:var(--acc)}
+.prices .preu{margin-left:auto;font-variant-numeric:tabular-nums}
+.prices .preu.best{color:var(--ok);font-weight:700}
+.prices .nota{color:var(--muted);font-size:.78rem}
+.item .choose{margin-top:6px}
+.item .choose .chosen{display:inline-block;background:var(--acc);color:#fff;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px}
+.section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 0 10px}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+
+/* ---------- Menú ---------- */
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+.day h3{color:var(--acc2);margin-bottom:8px}
+.meal{padding:8px 0;border-top:1px dashed var(--line)}
+.meal:first-of-type{border-top:none}
+.meal .what{font-weight:600}
+.meal .tech{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meal .who{font-size:.78rem;color:var(--muted);margin-top:2px}
+
+/* ---------- Àpats ---------- */
+.apats .plate{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.apats .plate h4{margin:0 0 4px;font-size:.98rem}
+.apats .plate .meta{font-size:.82rem;color:var(--muted);margin-bottom:6px}
+.ing-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.ing{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.8rem}
+
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
+
+/* ---------- Responsiu (mòbil) ---------- */
+@media (max-width: 640px){
+  header{padding:16px 16px}
+  header h1{font-size:1.15rem}
+  header .meta{font-size:.8rem}
+  .wrap{padding:10px 12px 48px}
+  .tabs{position:sticky;top:0;margin:12px 0;padding:6px 0;gap:6px}
+  .tabs button{flex:1 1 auto;padding:9px 10px;font-size:.82rem;white-space:nowrap}
+  .panel{padding:14px 14px}
+  .controls{flex-direction:column;align-items:stretch}
+  .controls select{width:100%}
+  .item{flex-direction:column;gap:8px;padding:11px 12px}
+  .item input[type=checkbox]{margin-top:2px}
+  .prices .sup{width:78px;flex:0 0 78px}
+  .sums{gap:6px}
+  .sum{flex:1 1 auto;text-align:center}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Menú del 14/8/2026 al 17/8/2026</h1>
+  <div class="meta">Del 2026-08-14 al 2026-08-17 · Compra: C — Mercadona + DIA + ALDI · Total: ≈ 49,54 € · Sense gluten · sense pasta · per a 4 persones (divendres dinar ×3)</div>
+</header>
+<div class="wrap">
+<div class="tabs">
+  <button class="active" data-tab="tab-llista">Llista de la compra</button>
+  <button data-tab="tab-menu">Menú</button>
+  <button data-tab="tab-apats">Àpats</button>
+</div><section id="tab-llista" class="active">
+  <div class="panel">
+    <h2>Llista de la compra</h2>
+    <div class="badges">Ordena per preu o supermercat, marca els productes que ja has comprat.</div>
+    <div class="controls">
+      <select id="orderSel">
+        <option value="super">Ordenar per supermercat</option>
+        <option value="preuAsc">Preu més barat primer</option>
+        <option value="preuDesc">Preu més car primer</option>
+        <option value="nom">Per nom</option>
+      </select>
+    </div>
+    <div id="sums" class="sums"></div>
+    <div class="section-label">Per comprar</div>
+    <div id="list"></div>
+    <div class="section-label">Comprats</div>
+    <div id="bought"></div>
+  </div>
+</section><section id="tab-menu">
+  <div class="panel">
+    <h2>Menú dia a dia</h2>
+    <div class="day"><h3>Divendres 14/8</h3><div class="meal">
+  <div class="what">Dinar — Salmó a l'air fryer + verdura al vapor (bròquil i carbassó)</div>
+  <div class="who"> · 3 persones</div>
+  <div class="tech">Tècnica: air fryer ~12 min + inducció 8 min</div>
+</div><div class="meal">
+  <div class="what">Sopar — Truita de patata (només patata) + amanida de tomàquet</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: inducció ~20 min</div>
+</div></div><div class="day"><h3>Dissabte 15/8</h3><div class="meal">
+  <div class="what">Dinar — Hamburgueses de vedella a l'air fryer + patates + amanida de burrata, cherrys i pesto</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: air fryer ~15 min + muntar 5 min</div>
+</div><div class="meal">
+  <div class="what">Sopar — Llenties estofades amb pastanaga, patata, pebrot verd i xoriç</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: olla a pressió ~30 min</div>
+</div></div><div class="day"><h3>Diumenge 16/8</h3><div class="meal">
+  <div class="what">Dinar — Pernilets de pollastre rostits a l'air fryer + verdures rostides</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: air fryer 2 tandes ~40 min, sense vigilar</div>
+</div><div class="meal">
+  <div class="what">Sopar — Arròs saltejat amb molta verdura (pebrot, carbassó, pèsols) + restes de pernilets</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: inducció ~12 min, tot de la nevera</div>
+</div></div><div class="day"><h3>Dilluns 17/8</h3><div class="meal">
+  <div class="what">Dinar — Restes de pernilets + amanida completa (enciam, tomàquet, blat de moro i ou)</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: muntar ~10 min</div>
+</div><div class="meal">
+  <div class="what">Sopar — Cuixes de pollastre a l'olla lenta (posades al matí) + arròs + mongeta verda al vapor</div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">Tècnica: olla lenta 8 h (0 min actius) + inducció 10 min</div>
+</div></div>
+  </div>
+</section><section id="tab-apats">
+  <div class="panel apats">
+    <h2>Àpats</h2>
+    <h3 style="color:var(--acc2);margin:18px 0 10px">Divendres 14/8</h3><div class="plate">
+  <h4>Salmó a l'air fryer + verdura al vapor (bròquil i carbassó)</h4>
+  <div class="meta">Dinar · 3 persones</div>
+  <div class="meta">Tècnica: air fryer ~12 min + inducció 8 min</div>
+  <div class="ing-list"><span class="ing">salmó</span><span class="ing">bròquil</span><span class="ing">carbassó</span></div>
+</div><div class="plate">
+  <h4>Truita de patata (només patata) + amanida de tomàquet</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~20 min</div>
+  <div class="ing-list"><span class="ing">patates</span><span class="ing">ous</span><span class="ing">tomàquets cherry</span></div>
+</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dissabte 15/8</h3><div class="plate">
+  <h4>Hamburgueses de vedella a l'air fryer + patates + amanida de burrata, cherrys i pesto</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: air fryer ~15 min + muntar 5 min</div>
+  <div class="ing-list"><span class="ing">hamburgueses de vacuno</span><span class="ing">patates</span><span class="ing">burrata</span><span class="ing">tomàquets cherry</span><span class="ing">pesto</span></div>
+</div><div class="plate">
+  <h4>Llenties estofades amb pastanaga, patata, pebrot verd i xoriç</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: olla a pressió ~30 min</div>
+  <div class="ing-list"><span class="ing">llenties</span><span class="ing">pastanaga</span><span class="ing">patates</span><span class="ing">pebrot verd</span><span class="ing">xoriç</span></div>
+</div><h3 style="color:var(--acc2);margin:18px 0 10px">Diumenge 16/8</h3><div class="plate">
+  <h4>Pernilets de pollastre rostits a l'air fryer + verdures rostides</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: air fryer 2 tandes ~40 min, sense vigilar</div>
+  <div class="ing-list"><span class="ing">jamoncitos de pollo</span><span class="ing">patates</span><span class="ing">pastanaga</span><span class="ing">ceba</span></div>
+</div><div class="plate">
+  <h4>Arròs saltejat amb molta verdura (pebrot, carbassó, pèsols) + restes de pernilets</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~12 min, tot de la nevera</div>
+  <div class="ing-list"><span class="ing">arròs</span><span class="ing">pebrot verd</span><span class="ing">carbassó</span><span class="ing">pèsols</span><span class="ing">jamoncitos de pollo</span></div>
+</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dilluns 17/8</h3><div class="plate">
+  <h4>Restes de pernilets + amanida completa (enciam, tomàquet, blat de moro i ou)</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: muntar ~10 min</div>
+  <div class="ing-list"><span class="ing">jamoncitos de pollo</span><span class="ing">enciam</span><span class="ing">tomàquets cherry</span><span class="ing">blat de moro</span><span class="ing">ous</span></div>
+</div><div class="plate">
+  <h4>Cuixes de pollastre a l'olla lenta (posades al matí) + arròs + mongeta verda al vapor</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: olla lenta 8 h (0 min actius) + inducció 10 min</div>
+  <div class="ing-list"><span class="ing">contramuslos de pollo</span><span class="ing">arròs</span><span class="ing">mongeta verda</span></div>
+</div>
+  </div>
+</section>
+</div>
+<script>
+/* ---------- Estat de compres (localStorage) ---------- */
+const KEY = "menu-2026-08-14";
+function loadState(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+function saveState(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
+let state = loadState();
+
+/* ---------- Dades ---------- */
+const FORMAT = {"fresc":{"t":"fresc","c":"green"},"congelat":{"t":"congelat","c":"blue"},"conserva":{"t":"conserva","c":"orange"},"sec":{"t":"sec","c":"purple"},"beguda":{"t":"beguda","c":"teal"},"":{"t":"","c":""}};
+const SUPERMERCATS = ["Mercadona", "DIA", "ALDI"];
+const LLISTA = [{"nom": "Salmó en porcions", "descripcio": "Norway seafood, 500 g", "format": "fresc", "gluten": true, "quantitat": "500 g", "per": "Dinar divendres (×3)", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 8.05, "unitat": "bandeja ~350 g", "ref": "23,00 €/kg"}, {"super": "ALDI", "preu": 5.49, "unitat": "filetes ~250 g", "ref": "21,96 €/kg"}, {"super": "DIA", "preu": 7.89, "unitat": "500 g", "ref": "15,78 €/kg"}]}, {"nom": "Bròquil", "descripcio": "Vegecampo, 900 g", "format": "fresc", "gluten": true, "quantitat": "900 g", "per": "Verdura al vapor divendres", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.8, "unitat": "congelat 1 kg", "ref": "1,80 €/kg"}, {"super": "DIA", "preu": 1.79, "unitat": "900 g", "ref": "1,99 €/kg"}]}, {"nom": "Carbassó", "descripcio": "Peça ~650 g", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Verdura al vapor + arròs saltejat", "escollit": "DIA", "preus": [{"super": "ALDI", "preu": 1.09, "unitat": "kg [OFERTA]", "ref": "1,09 €/kg"}, {"super": "DIA", "preu": 0.77, "unitat": "peça ~650 g", "ref": "1,19 €/kg"}]}, {"nom": "Patates", "descripcio": "4 kg", "format": "fresc", "gluten": true, "quantitat": "4 kg", "per": "Truita, rostides, llenties, air fryer", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 3.49, "unitat": "4 kg", "ref": "0,87 €/kg"}, {"super": "Mercadona", "preu": null, "unitat": "—"}]}, {"nom": "Ous grans L", "descripcio": "12 unitats", "format": "fresc", "gluten": true, "quantitat": "12 uds", "per": "Truita + amanida", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 3.05, "unitat": "6 uds (L)", "ref": "3,05 €/ud"}, {"super": "DIA", "preu": 3.05, "unitat": "12 uds (L)", "ref": "3,05 €/dotzena"}]}, {"nom": "Hamburgueses de vacuno", "descripcio": "DAYLICIOUS, 320 g, 4 unitats", "format": "fresc", "gluten": true, "quantitat": "1 pack", "per": "Dinar dissabte", "escollit": "ALDI", "preus": [{"super": "Mercadona", "preu": 3.0, "unitat": "angus 2 uds", "ref": "16,67 €/kg"}, {"super": "ALDI", "preu": 2.49, "unitat": "4 uds", "ref": "7,78 €/kg"}]}, {"nom": "Burrata", "descripcio": "1 unitat", "format": "fresc", "gluten": true, "quantitat": "1 ud", "per": "Amanida dissabte", "escollit": "ALDI", "preus": [{"super": "Mercadona", "preu": 2.2, "unitat": "150 g", "ref": "14,67 €/kg"}, {"super": "ALDI", "preu": 1.65, "unitat": "120 g", "ref": "13,75 €/kg"}]}, {"nom": "Tomàquets cherry", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Amanides", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 2.2, "unitat": "500 g", "ref": "4,40 €/kg"}, {"super": "ALDI", "preu": 1.59, "unitat": "500 g [OFERTA]", "ref": "3,18 €/kg"}, {"super": "DIA", "preu": 0.89, "unitat": "250 g", "ref": "3,56 €/kg"}]}, {"nom": "Pesto", "descripcio": "Dia Salseo, 185 g", "format": "conserva", "gluten": true, "quantitat": "1 pot", "per": "Amanida dissabte", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.95, "unitat": "190 g", "ref": "10,26 €/kg"}, {"super": "ALDI", "preu": 1.85, "unitat": "190 g", "ref": "9,74 €/kg"}, {"super": "DIA", "preu": 1.56, "unitat": "185 g", "ref": "8,43 €/kg"}]}, {"nom": "Llenties pardines", "descripcio": "Vegecampo, 1 kg", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Estofat dissabte", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.35, "unitat": "la riojana 420 g", "ref": "3,22 €/kg"}, {"super": "DIA", "preu": 1.95, "unitat": "1 kg", "ref": "1,95 €/kg"}]}, {"nom": "Pastanaga", "descripcio": "1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Llenties + verdures rostides", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "1 kg", "ref": "1,20 €/kg"}, {"super": "DIA", "preu": 1.19, "unitat": "1 kg", "ref": "1,19 €/kg"}]}, {"nom": "Pebrot verd", "descripcio": "500 g aprox.", "format": "fresc", "gluten": true, "quantitat": "500 g", "per": "Llenties + arròs saltejat", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 0.81, "unitat": "peça", "ref": "2,80 €/kg"}, {"super": "DIA", "preu": 1.25, "unitat": "500 g", "ref": "2,49 €/kg"}]}, {"nom": "Xoriç oreado", "descripcio": "Selección de Dia, 340 g", "format": "conserva", "gluten": false, "quantitat": "340 g", "per": "Llenties (una mica)", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 2.48, "unitat": "oreado", "ref": "6,90 €/kg"}, {"super": "ALDI", "preu": 1.69, "unitat": "León extra 100 g", "ref": "16,90 €/kg"}, {"super": "DIA", "preu": 2.69, "unitat": "340 g", "ref": "7,91 €/kg"}]}, {"nom": "Ceba", "descripcio": "Malla 1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Verdures rostides + llenties", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 1.0, "unitat": "malla 1 kg", "ref": "1,00 €/kg"}]}, {"nom": "Arròs llarg", "descripcio": "Arrozona, 1 kg", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Arròs saltejat + arròs blanc", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "1 kg", "ref": "1,20 €/kg"}, {"super": "DIA", "preu": 1.2, "unitat": "1 kg", "ref": "1,20 €/kg"}]}, {"nom": "Pèsols fins", "descripcio": "Vegecampo, 1 kg", "format": "congelat", "gluten": true, "quantitat": "1 kg", "per": "Arròs saltejat", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 1.5, "unitat": "1 kg", "ref": "1,50 €/kg"}]}, {"nom": "Mongeta verda plana", "descripcio": "Vegecampo, 1 kg", "format": "congelat", "gluten": true, "quantitat": "1 kg", "per": "Al vapor dilluns", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 1.1, "unitat": "fresca 360 g", "ref": "3,06 €/kg"}, {"super": "ALDI", "preu": 1.05, "unitat": "360 g conserva", "ref": "2,92 €/kg"}, {"super": "DIA", "preu": 1.3, "unitat": "1 kg congelat", "ref": "1,30 €/kg"}]}, {"nom": "Blat de moro dolç", "descripcio": "Hacendado, 3 llaunes", "format": "conserva", "gluten": true, "quantitat": "1 pack", "per": "Amanida completa dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.55, "unitat": "pack 3", "ref": "3,69 €/kg"}, {"super": "DIA", "preu": 0.99, "unitat": "285 g", "ref": "3,47 €/kg"}]}, {"nom": "Enciam iceberg", "descripcio": "1 unitat", "format": "fresc", "gluten": true, "quantitat": "1 ud", "per": "Amanida completa dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.9, "unitat": "peça", "ref": "0,90 €/ud"}]}, {"nom": "Jamoncitos de pollo", "descripcio": "Bandeja ~920 g", "format": "fresc", "gluten": true, "quantitat": "2 bandeixes", "per": "Pernilets rostits diumenge + restes dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.22, "unitat": "bandeja ~920 g", "ref": "3,50 €/kg"}]}, {"nom": "Contramuslos de pollo", "descripcio": "Sense pell, bandeja", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Olla lenta dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.4, "unitat": "bandeja", "ref": "4,20 €/kg"}]}];
+
+/* ---------- Rendering llista ---------- */
+const listEl = document.getElementById("list");
+const boughtEl = document.getElementById("bought");
+let order = "super";
+let dir = 1;
+
+function tagHTML(it){
+  let h = "";
+  const f = FORMAT[it.format]||null;
+  if(f) h += `<span class="tag ${f.c}">${f.t}</span>`;
+  if(it.gluten === true) h += `<span class="tag nogluten">sense gluten</span>`;
+  else if(it.gluten === false) h += `<span class="tag gluten">conté gluten</span>`;
+  return h;
+}
+function priceHTML(it){
+  const rows = it.preus.map(p=>{
+    if(p.preu==null) return `<div class="row"><span class="sup${p.super===it.escollit?" escollit":""}">${p.super}</span><span class="preu">—</span></div>`;
+    const best = bestPrice(it)==p.preu;
+    const esc = p.super===it.escollit ? " escollit" : "";
+    const nota = p.unitat ? `<span class="nota"> · ${p.unitat}${p.ref?" · "+p.ref:""}</span>` : "";
+    return `<div class="row"><span class="sup${esc}">${p.super}</span><span class="preu ${best?"best":""}">${fmt(p.preu)}</span>${nota}</div>`;
+  }).join("");
+  return `<div class="prices">${rows}</div>`;
+}
+function bestPrice(it){
+  const vals = it.preus.map(p=>p.preu).filter(v=>v!=null);
+  return vals.length?Math.min(...vals):null;
+}
+function fmt(v){ return v.toFixed(2).replace(".",",") + " €"; }
+function renderList(){
+  const done = state.done||{};
+  const items = [...LLISTA];
+  const dirn = dir;
+  items.sort((a,b)=>{
+    if(order==="super") return (a.escollit||"").localeCompare(b.escollit||"")*dirn || a.nom.localeCompare(b.nom);
+    if(order==="preuAsc"){ const pa=a.preus.map(p=>p.preu).filter(v=>v!=null); const pb=b.preus.map(p=>p.preu).filter(v=>v!=null);
+      const ma=pa.length?Math.min(...pa):1e9, mb=pb.length?Math.min(...pb):1e9; return (ma-mb)||a.nom.localeCompare(b.nom); }
+    if(order==="preuDesc"){ const pa=a.preus.map(p=>p.preu).filter(v=>v!=null); const pb=b.preus.map(p=>p.preu).filter(v=>v!=null);
+      const ma=pa.length?Math.max(...pa):0, mb=pb.length?Math.max(...pb):0; return (mb-ma)||a.nom.localeCompare(b.nom); }
+    return a.nom.localeCompare(b.nom);
+  });
+  const todo = items.filter(i=>!done[i.nom]);
+  const bought = items.filter(i=>done[i.nom]);
+  renderSums();
+  listEl.innerHTML = todo.map(itemHTML).join("") || `<div class="empty">Res per comprar 🎉</div>`;
+  boughtEl.innerHTML = bought.map(itemHTML).join("") || `<div class="empty">Cap producte comprat encara.</div>`;
+}
+function itemHTML(it){
+  const done = state.done||{};
+  return `<div class="item${done[it.nom]?" checked":""}" data-nom="${it.nom}">
+    <input type="checkbox" ${done[it.nom]?"checked":""} onchange="toggle(this)">
+    <div class="body">
+      <div class="nom">${it.nom}</div>
+      ${it.descripcio?`<div class="descr">${it.descripcio}</div>`:""}
+      ${it.per?`<div class="per">${it.per}</div>`:""}
+      <div class="tags">${tagHTML(it)}${it.quantitat?`<span class="tag" style="background:#e0f2fe;color:#075985">${it.quantitat}</span>`:""}</div>
+      ${priceHTML(it)}
+      ${it.escollit?`<div class="choose"><span class="chosen">comprar a ${it.escollit}</span></div>`:""}
+    </div>
+  </div>`;
+}
+function toggle(cb){
+  state.done = state.done||{};
+  const nom = cb.closest(".item").dataset.nom;
+  if(cb.checked) state.done[nom]=true; else delete state.done[nom];
+  saveState(state); renderList();
+}
+function renderSums(){
+  const done = state.done||{};
+  const sums = {};
+  for(const s of SUPERMERCATS) sums[s]={tot:0, done:0, doneV:0};
+  let gTot=0;
+  for(const it of LLISTA){
+    const p = it.preus.find(x=>x.super===it.escollit);
+    if(p && p.preu!=null){ sums[it.escollit].tot+=p.preu; gTot+=p.preu;
+      if(done[it.nom]){ sums[it.escollit].doneV+=p.preu; sums[it.escollit].done++; } }
+  }
+  document.getElementById("sums").innerHTML = SUPERMERCATS.map(s=>
+    `<span class="sum">${s}: <b>${fmt(sums[s].tot)}</b></span>`).join("")
+    + `<span class="sum">TOTAL: <b>${fmt(gTot)}</b></span>`;
+}
+
+/* ---------- Tabs ---------- */
+function showTab(id, btn){
+  document.querySelectorAll("section").forEach(s=>s.classList.toggle("active", s.id===id));
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active", b===btn));
+}
+document.querySelectorAll(".tabs button").forEach(b=>{
+  b.addEventListener("click", ()=>showTab(b.dataset.tab, b));
+});
+
+/* ---------- Controls ---------- */
+const sel = document.getElementById("orderSel");
+if(sel){
+  sel.addEventListener("change", ()=>{ order=sel.value; dir = order==="preuDesc"?-1:1; renderList(); });
+}
+
+renderList();
+</script>
+</body>
+</html>
