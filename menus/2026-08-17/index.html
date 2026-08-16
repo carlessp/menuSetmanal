@@ -598,39 +598,50 @@ async function ghPut(path, content, sha, token){
   if(sha) body.sha = sha;
   const r = await fetch(url, { method:"PUT", headers:{ "Authorization":`token ${token}`, "Content-Type":"application/json" }, body: JSON.stringify(body) });
   const j = await r.json().catch(()=>({}));
-  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); throw new Error(j.message || ("HTTP "+r.status)); }
+  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); const e = new Error(j.message || ("HTTP "+r.status)); e.status = r.status; throw e; }
   return j;
 }
 async function doSync(){
   if(!syncBtn) return;
   syncBtn.disabled = true;
   syncMsg("Sincronitzant...");
-  try{
-    const token = getToken();
-    if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); return; }
-    const remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
-    const local = loadState();
-    const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
-    let winner;
-    if(remoteNewer){
-      winner = remote.data;                // el núvol és més recent → sobreescriu
-      syncMsg("El núvol és més recent: he rebut l'estat de l'altre dispositiu.");
-    }else{
-      winner = local;                      // aquest dispositiu és igual o més recent → puja
-      syncMsg(remote.data ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
+  const token = getToken();
+  if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); syncBtn.disabled = false; return; }
+  const MAX_ATTEMPTS = 5;
+  for(let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++){
+    try{
+      const remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
+      const local = loadState();
+      const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
+      let winner;
+      if(remoteNewer){
+        winner = remote.data;                // el núvol és més recent → sobreescriu
+        syncMsg("El núvol és més recent: he rebut l'estat de l'altre dispositiu.");
+      }else{
+        winner = local;                      // aquest dispositiu és igual o més recent → puja
+        syncMsg(remote.data ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
+      }
+      let payload;
+      if(winner === local){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
+      else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
+      state = payload;
+      const res = await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
+      renderList();
+      syncMsg("✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
+      return;
+    }catch(e){
+      // Conflicte de concurrència (status 422): un altre dispositiu ha modificat
+      // el fitxer entre el GET i el PUT. Re-llegim el núvol i reintentem.
+      if(e.status===422 && attempt < MAX_ATTEMPTS){
+        syncMsg("Algun dispositiu ha canviat l'estat alhora. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
+        await new Promise(r=>setTimeout(r, 400));
+        continue;
+      }
+      syncMsg("Error de sincronització: " + (e.message||e), "err");
+      break;
     }
-    let payload;
-    if(winner === local){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
-    else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
-    state = payload;
-    const res = await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
-    renderList();
-    syncMsg("✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
-  }catch(e){
-    syncMsg("Error de sincronització: " + (e.message||e), "err");
-  }finally{
-    syncBtn.disabled = false;
   }
+  syncBtn.disabled = false;
 }
 if(syncBtn) syncBtn.addEventListener("click", doSync);
 
