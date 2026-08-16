@@ -39,6 +39,12 @@ h3{font-size:1rem;margin:0}
 /* ---------- Llista ---------- */
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
 .controls select,.controls button{border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:9px;font-size:.86rem;cursor:pointer}
+.controls #syncBtn{background:var(--acc);color:#fff;border-color:var(--acc)}
+.controls #syncBtn:hover{background:var(--acc2)}
+.controls #syncBtn[disabled]{opacity:.6;cursor:wait}
+.sync-msg{font-size:.82rem;margin:-6px 0 12px;color:var(--muted)}
+.sync-msg.ok{color:#15803d}
+.sync-msg.err{color:#b91c1c}
 .sums{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .sum{background:var(--chip);border-radius:9px;padding:7px 12px;font-size:.84rem}
 .sum b{color:var(--acc)}
@@ -133,7 +139,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
 <header>
   <a class="back" href="../../index.html">← Menús</a>
   <h1>Menú setmanal del 17/8/2026 al 23/8/2026</h1>
-  <div class="meta">Del 2026-08-17 al 2026-08-23 · Compra: B — Mercadona + DIA · Total: ≈ 84 € · Patró estiu (7 dinars + 7 sopars) · sense gluten · sense pasta · ràpid i fàcil</div>
+  <div class="meta">Del 2026-08-17 al 2026-08-23 · Compra: B — Mercadona + DIA · Total: ≈ 101 € · Patró estiu (7 dinars + 7 sopars) · sense gluten · sense pasta · ràpid i fàcil</div>
 </header>
 <div class="wrap">
 <div class="tabs">
@@ -154,7 +160,9 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
         <option value="preuDesc">Preu més car primer</option>
         <option value="nom">Per nom</option>
       </select>
+      <button id="syncBtn" type="button" title="Sincronitza l'estat de compra amb el núvol (GitHub)">⟳ Sincronitza</button>
     </div>
+    <div id="syncMsg" class="sync-msg"></div>
     <div id="sums" class="sums"></div>
     <div class="section-label">Per comprar</div>
     <div id="list"></div>
@@ -329,7 +337,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
 /* ---------- Estat de compres (localStorage) ---------- */
 const KEY = "menu-2026-08-17";
 function loadState(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
-function saveState(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
+function saveState(s){ s.updated = Date.now(); localStorage.setItem(KEY, JSON.stringify(s)); }
 let state = loadState();
 
 /* ---------- Dades ---------- */
@@ -533,6 +541,86 @@ const sel = document.getElementById("orderSel");
 if(sel){
   sel.addEventListener("change", ()=>{ order=sel.value; dir = order==="preuDesc"?-1:1; renderList(); });
 }
+
+/* ---------- Sincronització (GitHub API) ---------- */
+const SYNC_REPO = "carlessp/menuSetmanal";   // "owner/repo"
+const SYNC_BRANCH = "main"; // "main"
+const SYNC_PATH = "sync/menu-2026-08-17.json";    // "sync/<storage_key>.json"
+const SYNC_TOKEN_KEY = "gh_sync_token";
+const syncBtn = document.getElementById("syncBtn");
+const syncMsgEl = document.getElementById("syncMsg");
+function syncMsg(text, cls){
+  if(syncMsgEl){ syncMsgEl.textContent = text; syncMsgEl.className = "sync-msg " + (cls||""); }
+  if(text && !cls){ syncMsgEl.className = "sync-msg ok"; }
+}
+function getToken(){
+  let t = localStorage.getItem(SYNC_TOKEN_KEY);
+  if(!t){ t = prompt("Token d'accés personal de GitHub (repo scope). Sense token no es pot pujar l'estat. Només es guarda en aquest dispositiu (localStorage)."); if(t) localStorage.setItem(SYNC_TOKEN_KEY, t.trim()); }
+  return t;
+}
+async function ghGet(path){
+  const url = `https://raw.githubusercontent.com/${SYNC_REPO}/${SYNC_BRANCH}/${path}`;
+  const r = await fetch(url);
+  if(!r.ok) return null;
+  return r.json();
+}
+async function ghPut(path, content, sha, token){
+  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}`;
+  const body = {
+    message: `sync ${path}`,
+    branch: SYNC_BRANCH,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))), // base64 utf-8
+  };
+  if(sha) body.sha = sha;
+  const r = await fetch(url, { method:"PUT", headers:{ "Authorization":`token ${token}`, "Content-Type":"application/json" }, body: JSON.stringify(body) });
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok){ throw new Error(j.message || ("HTTP "+r.status)); }
+  return j;
+}
+async function ghGetMeta(path, token){
+  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}?ref=${SYNC_BRANCH}`;
+  const r = await fetch(url, { headers:{ "Authorization":`token ${token}` } });
+  if(r.status===404) return null;
+  if(!r.ok){ const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
+  return r.json();
+}
+async function doSync(){
+  if(!syncBtn) return;
+  syncBtn.disabled = true;
+  syncMsg("Sincronitzant...");
+  try{
+    const token = getToken();
+    if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); return; }
+    const remote = await ghGet(SYNC_PATH);           // contingut actual (raw, sense token)
+    let sha = null;
+    if(remote){
+      const meta = await ghGetMeta(SYNC_PATH, token); // sha per poder sobrescriure
+      sha = meta ? meta.sha : null;
+    }
+    const local = loadState();
+    const remoteNewer = remote && (remote.updated||0) > (local.updated||0);
+    let winner;
+    if(remoteNewer){
+      winner = remote;                       // el núvol és més recent → sobreescriu
+      syncMsg("El núvol és més recent: he rebut l'estat de l'altre dispositiu.");
+    }else{
+      winner = local;                        // aquest dispositiu és igual o més recent → puja
+      syncMsg(remote ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
+    }
+    let payload;
+    if(winner === local){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
+    else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
+    state = payload;
+    const res = await ghPut(SYNC_PATH, payload, sha, token); // puja exactament el que s'ha desat
+    renderList();
+    syncMsg("✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
+  }catch(e){
+    syncMsg("Error de sincronització: " + (e.message||e), "err");
+  }finally{
+    syncBtn.disabled = false;
+  }
+}
+if(syncBtn) syncBtn.addEventListener("click", doSync);
 
 renderList();
 </script>
