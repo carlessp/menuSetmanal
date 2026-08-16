@@ -42,6 +42,7 @@ h3{font-size:1rem;margin:0}
 .controls #syncBtn{background:var(--acc);color:#fff;border-color:var(--acc)}
 .controls #syncBtn:hover{background:var(--acc2)}
 .controls #syncBtn[disabled]{opacity:.6;cursor:wait}
+.controls #resetTokenBtn{background:transparent;color:var(--muted);border:none;padding:7px 4px;font-size:.78rem;text-decoration:underline;cursor:pointer}
 .sync-msg{font-size:.82rem;margin:-6px 0 12px;color:var(--muted)}
 .sync-msg.ok{color:#15803d}
 .sync-msg.err{color:#b91c1c}
@@ -161,6 +162,7 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
         <option value="nom">Per nom</option>
       </select>
       <button id="syncBtn" type="button" title="Sincronitza l'estat de compra amb el núvol (GitHub)">⟳ Sincronitza</button>
+      <button id="resetTokenBtn" type="button" title="Esborra el token guardat d'aquest dispositiu per posar-ne un de nou" style="display:none">Oblida token</button>
     </div>
     <div id="syncMsg" class="sync-msg"></div>
     <div id="sums" class="sums"></div>
@@ -558,6 +560,23 @@ function getToken(){
   if(!t){ t = prompt("Token d'accés personal de GitHub (repo scope). Sense token no es pot sincronitzar. Només es guarda en aquest dispositiu (localStorage)."); if(t) localStorage.setItem(SYNC_TOKEN_KEY, t.trim()); }
   return t;
 }
+function tokenInvalid(status){
+  if(status===401 || status===403){
+    localStorage.removeItem(SYNC_TOKEN_KEY);
+    if(resetTokenBtn) resetTokenBtn.style.display = "inline-block";
+    return true;
+  }
+  return false;
+}
+const resetTokenBtn = document.getElementById("resetTokenBtn");
+if(resetTokenBtn){
+  resetTokenBtn.addEventListener("click", ()=>{
+    localStorage.removeItem(SYNC_TOKEN_KEY);
+    resetTokenBtn.style.display = "none";
+    syncMsg("Token esborrat. Prem '⟳ Sincronitza' per posar-ne un de nou.");
+    getToken();
+  });
+}
 function b64decode(s){
   try{ return decodeURIComponent(escape(atob(s))); }catch(e){ try{ return atob(s); }catch(_){ return ""; } }
 }
@@ -565,7 +584,7 @@ async function ghGet(path, token){
   const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}?ref=${SYNC_BRANCH}`;
   const r = await fetch(url, { headers:{ "Authorization":`token ${token}` } });
   if(r.status===404) return { data:null, sha:null };
-  if(!r.ok){ const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
+  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
   const j = await r.json();
   return { data: j.content ? JSON.parse(b64decode(j.content)) : null, sha: j.sha };
 }
@@ -579,7 +598,7 @@ async function ghPut(path, content, sha, token){
   if(sha) body.sha = sha;
   const r = await fetch(url, { method:"PUT", headers:{ "Authorization":`token ${token}`, "Content-Type":"application/json" }, body: JSON.stringify(body) });
   const j = await r.json().catch(()=>({}));
-  if(!r.ok){ throw new Error(j.message || ("HTTP "+r.status)); }
+  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); throw new Error(j.message || ("HTTP "+r.status)); }
   return j;
 }
 async function doSync(){
