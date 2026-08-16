@@ -634,6 +634,13 @@ async function doSync(){
 }
 if(syncBtn) syncBtn.addEventListener("click", doSync);
 
+function autoSync(){
+  if(!syncBtn || !localStorage.getItem(SYNC_TOKEN_KEY)) return;
+  syncMsg("Sincronitzant...");
+  doSync();
+}
+window.addEventListener("load", ()=> setTimeout(autoSync, 400));
+
 renderList();
 </script>
 </body>
