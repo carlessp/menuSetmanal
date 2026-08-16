@@ -7,140 +7,394 @@
 <link rel="icon" type="image/png" sizes="512x512" href="../../assets/icon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icon-180.png">
 <link rel="manifest" href="../../manifest.webmanifest">
-<meta name="theme-color" content="#0f766e">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2c2a1a">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <title>Menú setmanal del 17/8/2026 al 23/8/2026</title>
 <style>
 :root{
-  --bg:#f4f6f8; --card:#ffffff; --ink:#1c2733; --muted:#6b7785;
-  --line:#e3e8ee; --acc:#0f766e; --acc2:#134e4a; --danger:#b91c1c;
-  --ok:#16a34a; --warn:#d97706; --chip:#eef2f6;
+  --paper:#f3ecdc;
+  --card:#fffdf7;
+  --ink:#2b2117;
+  --muted:#8a7860;
+  --line:#e7dabf;
+  --line-s:#f0e7d2;
+  --tomato:#c04a1c;
+  --tomato-d:#95380f;
+  --tomato-soft:#f6ddc9;
+  --olive:#5c6c2e;
+  --olive-d:#43511f;
+  --olive-soft:#e3e7c6;
+  --mustard:#c89114;
+  --mustard-soft:#f4e6b7;
+  --sea:#2f5e7b;
+  --sea-soft:#d9e5ec;
+  --plum:#6b4a78;
+  --plum-soft:#e8dcf0;
+  --danger:#a83a2c;
+  --grain:url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
+  --shadow:0 1px 2px rgba(60,42,15,.05),0 10px 26px -12px rgba(80,55,20,.18);
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-header{padding:20px 24px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
-header h1{margin:0 0 6px;font-size:1.5rem}
-header .meta{font-size:.92rem;opacity:.92}
-header .back{display:inline-block;margin-bottom:10px;color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 12px}
-header .back:hover{background:rgba(255,255,255,.28)}
-.wrap{max-width:1080px;margin:0 auto;padding:16px 24px 64px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
-.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem}
-.tabs button.active{background:var(--acc);border-color:var(--acc);color:#fff}
-section{display:none}
-section.active{display:block}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:20px;box-shadow:0 1px 2px rgba(20,40,60,.05)}
-h2{font-size:1.15rem;margin:0 0 12px}
-h3{font-size:1rem;margin:0}
-.badges{margin:8px 0 16px;font-size:.85rem;color:var(--muted)}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+}
+body::before{
+  content:"";position:fixed;inset:0;
+  background:var(--grain);opacity:.45;
+  pointer-events:none;z-index:0;
+}
+header,.wrap{position:relative;z-index:1}
 
-/* ---------- Llista ---------- */
+/* ---------- Header (portada de cuina) ---------- */
+header{
+  position:relative;overflow:hidden;
+  padding:32px 24px 46px;
+  background:
+    radial-gradient(120% 170% at 88% -15%, rgba(192,74,28,.55), transparent 55%),
+    radial-gradient(120% 150% at 6% 112%, rgba(92,108,46,.6), transparent 58%),
+    linear-gradient(165deg,#2f2d1b 0%,#262a18 60%,#202314 100%);
+  color:#f5efdf;
+}
+header::before{
+  content:"";position:absolute;inset:0;
+  background:var(--grain);opacity:.7;mix-blend-mode:overlay;pointer-events:none;
+}
+header::after{
+  content:"";position:absolute;left:24px;bottom:24px;
+  width:76px;height:5px;border-radius:99px;
+  background:linear-gradient(90deg,var(--tomato),var(--mustard));
+}
+header .back{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-bottom:20px;
+  color:#f5efdf;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid rgba(245,239,223,.38);border-radius:99px;
+  padding:5px 14px;background:rgba(245,239,223,.08);
+  transition:background .2s,border-color .2s;
+}
+header .back:hover{background:rgba(245,239,223,.2);border-color:rgba(245,239,223,.7)}
+header .eyebrow{
+  margin:0 0 8px;
+  font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--mustard-soft);opacity:.95;
+}
+header h1{
+  margin:0 0 10px;
+  font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:clamp(1.75rem,5vw,2.6rem);line-height:1.05;letter-spacing:-.01em;
+}
+header .dates{
+  margin:0 0 16px;
+  font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.05rem;color:var(--mustard-soft);opacity:.95;
+}
+header .dates .sep{opacity:.55;margin:0 5px}
+header .meta{font-size:.9rem;color:rgba(245,239,223,.82);max-width:62ch;margin:0 0 16px}
+header .chips{display:flex;flex-wrap:wrap;gap:8px}
+header .chip{
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 13px;border-radius:99px;
+}
+header .chip.tomato{background:var(--tomato);color:#fff8ee}
+header .chip.olive{background:var(--olive);color:#f6f3e3}
+header .chip.mustard{background:var(--mustard);color:#3a2a05}
+
+/* ---------- Estructura ---------- */
+.wrap{max-width:960px;margin:0 auto;padding:24px 20px 70px}
+.tabs{
+  display:flex;gap:6px;flex-wrap:wrap;
+  position:sticky;top:12px;z-index:20;
+  margin:0 0 20px;padding:6px;
+  background:rgba(243,236,220,.84);
+  border:1px solid var(--line);border-radius:16px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--shadow);
+}
+.tabs::-webkit-scrollbar{display:none}
+.tabs{scrollbar-width:none}
+.tabs button{
+  border:none;background:transparent;color:var(--muted);
+  font-family:inherit;font-weight:800;font-size:.86rem;
+  padding:9px 14px;border-radius:11px;cursor:pointer;
+  transition:background .18s,color .18s,transform .12s;
+}
+.tabs button:hover{color:var(--ink);background:rgba(192,74,28,.08)}
+.tabs button.active{background:var(--tomato);color:#fff8ee;box-shadow:0 4px 12px -5px rgba(192,74,28,.6)}
+.tabs button:focus-visible,.controls select:focus-visible,.controls button:focus-visible,.item input:focus-visible{
+  outline:2px solid var(--tomato);outline-offset:2px;
+}
+section{display:none}
+section.active{display:block;animation:fade .3s ease}
+.panel{
+  background:var(--card);
+  border:1px solid var(--line);border-radius:18px;
+  padding:20px 22px;margin-bottom:18px;
+  box-shadow:var(--shadow);
+  animation:rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+section:nth-of-type(2) .panel{animation-delay:.05s}
+section:nth-of-type(3) .panel{animation-delay:.1s}
+section:nth-of-type(4) .panel{animation-delay:.15s}
+section:nth-of-type(5) .panel{animation-delay:.2s}
+.panel h2{
+  font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:1.32rem;letter-spacing:-.01em;color:var(--olive-d);
+  margin:0 0 6px;padding-bottom:10px;position:relative;
+}
+.panel h2::after{
+  content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;border-radius:99px;
+  background:linear-gradient(90deg,var(--tomato),var(--mustard));
+}
+.badges{font-size:.86rem;color:var(--muted);margin:4px 0 18px}
+footer{color:var(--muted);font-size:.76rem;text-align:center;padding:28px 0 12px;letter-spacing:.05em}
+footer .mark{color:var(--tomato)}
+
+/* ---------- Llista de la compra ---------- */
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-.controls select,.controls button{border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:9px;font-size:.86rem;cursor:pointer}
-.controls #syncBtn{background:var(--acc);color:#fff;border-color:var(--acc)}
-.controls #syncBtn:hover{background:var(--acc2)}
-.controls #syncBtn[disabled]{opacity:.6;cursor:wait}
-.controls #resetTokenBtn{background:transparent;color:var(--muted);border:none;padding:7px 4px;font-size:.78rem;text-decoration:underline;cursor:pointer}
-.sync-msg{font-size:.82rem;margin:-6px 0 12px;color:var(--muted)}
-.sync-msg.ok{color:#15803d}
-.sync-msg.err{color:#b91c1c}
-.sums{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.sum{background:var(--chip);border-radius:9px;padding:7px 12px;font-size:.84rem}
-.sum b{color:var(--acc)}
-.item{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;background:#fff}
-.item.checked{opacity:.55;background:var(--chip)}
-.item.checked .nom{text-decoration:line-through}
-.item input[type=checkbox]{margin-top:4px;width:18px;height:18px;accent-color:var(--acc);flex:0 0 18px}
+.controls select{
+  font-family:inherit;font-size:.86rem;font-weight:700;color:var(--ink);
+  background:var(--card);border:1.5px solid var(--line);border-radius:11px;
+  padding:8px 34px 8px 13px;cursor:pointer;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='14'%20height='14'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%238a7860'%20stroke-width='2.6'%3E%3Cpath%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 11px center;background-size:13px;
+}
+.controls select:hover{border-color:var(--line-s)}
+.controls #syncBtn{
+  font-family:inherit;font-weight:800;font-size:.86rem;
+  color:#fff8ee;background:var(--olive);border:none;border-radius:11px;
+  padding:8px 14px;cursor:pointer;
+  transition:background .18s,transform .12s;
+}
+.controls #syncBtn:hover{background:var(--olive-d);transform:translateY(-1px)}
+.controls #syncBtn:disabled{opacity:.6;cursor:wait;transform:none}
+.controls #syncBtn:disabled::before{
+  content:"";display:inline-block;width:.72em;height:.72em;
+  border:2px solid #fff;border-top-color:transparent;border-radius:50%;
+  margin-right:7px;vertical-align:-1px;animation:spin 1s linear infinite;
+}
+.controls #resetTokenBtn{
+  background:none;border:none;color:var(--muted);
+  font-size:.74rem;text-decoration:underline;cursor:pointer;padding:6px 4px;
+}
+.sync-msg{font-size:.8rem;margin:-4px 0 12px;color:var(--muted)}
+.sync-msg.ok{color:var(--olive-d);font-weight:700}
+.sync-msg.err{color:var(--danger)}
+.sums{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sum{
+  background:var(--card);border:1.5px solid var(--line);border-radius:12px;
+  padding:7px 12px;min-width:96px;
+  display:flex;flex-direction:column;gap:1px;
+}
+.sum .sum-l{font-size:.64rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sum b{font-family:"Fraunces",Georgia,serif;font-size:1.18rem;font-weight:600;color:var(--tomato);font-variant-numeric:tabular-nums}
+.sum-tot{background:var(--olive-soft);border-color:var(--olive)}
+.sum-tot b{color:var(--olive-d)}
+.section-label{
+  display:flex;align-items:center;gap:9px;
+  font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--olive-d);margin:22px 0 10px;
+}
+.section-label::before{content:"";width:7px;height:7px;border-radius:99px;background:var(--tomato)}
+.item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--card);
+  border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 15px;margin-bottom:9px;
+  transition:border-color .18s,box-shadow .18s,transform .18s,opacity .3s,background .3s;
+}
+.item:hover{border-color:var(--line-s);box-shadow:0 8px 18px -12px rgba(80,55,20,.3);transform:translateY(-1px)}
+.item.checked{opacity:.6;background:var(--paper)}
+.item.checked .nom{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--tomato)}
+.item input[type=checkbox]{
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;flex:0 0 22px;margin:2px 0 0;
+  border:2px solid var(--line-s);border-radius:7px;background:var(--card);
+  cursor:pointer;position:relative;
+  transition:background .15s,border-color .15s;
+}
+.item input[type=checkbox]:hover{border-color:var(--olive)}
+.item input[type=checkbox]:checked{background:var(--olive);border-color:var(--olive);animation:pop .25s ease}
+.item input[type=checkbox]:checked::after{
+  content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2.4px 2.4px 0;transform:rotate(43deg);
+}
 .item .body{flex:1;min-width:0}
-.item .nom{font-weight:600;font-size:.97rem}
-.item .descr{font-size:.85rem;color:var(--muted);margin-top:2px}
-.item .per{font-size:.82rem;color:var(--muted);margin-top:2px}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.tag{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.02em}
-.tag.fresc{background:#dcfce7;color:#166534}
-.tag.congelat{background:#dbeafe;color:#1e40af}
-.tag.conserva{background:#ffedd5;color:#9a3412}
-.tag.sec{background:#f3e8ff;color:#6b21a8}
-.tag.beguda{background:#ccfbf1;color:#115e59}
-.tag.gluten{background:#fef9c3;color:#854d0e}
-.tag.nogluten{background:#fecaca;color:#991b1b}
-.prices{margin-top:8px;border-top:1px dashed var(--line);padding-top:7px;font-size:.84rem}
-.prices .row{display:flex;gap:8px;align-items:center;padding:2px 0}
-.prices .sup{font-weight:700;width:96px;flex:0 0 96px}
-.prices .sup.escollit{color:var(--acc)}
-.prices .preu{margin-left:auto;font-variant-numeric:tabular-nums}
-.prices .preu.best{color:var(--ok);font-weight:700}
-.prices .nota{color:var(--muted);font-size:.78rem}
-.item .choose{margin-top:6px}
-.item .choose .chosen{display:inline-block;background:var(--acc);color:#fff;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px}
-.section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 0 10px}
-.cat-header{font-size:.82rem;font-weight:700;color:var(--acc2);background:var(--chip);border-radius:999px;padding:4px 12px;margin:14px 0 8px;display:inline-block}
-.cat-header b{color:var(--acc)}
-.empty{color:var(--muted);font-style:italic;padding:8px 0}
+.item .nom{font-weight:700;font-size:.98rem}
+.item .descr{font-size:.84rem;color:var(--muted);margin-top:2px}
+.item .per{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted);margin-top:3px}
+.item .per::before{content:"↳";color:var(--tomato);font-weight:800}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{
+  font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;border:1px solid transparent;white-space:nowrap;
+}
+.tag.fresc{background:var(--olive-soft);color:var(--olive-d)}
+.tag.congelat{background:var(--sea-soft);color:var(--sea)}
+.tag.conserva{background:var(--mustard-soft);color:#7a5206}
+.tag.sec{background:var(--plum-soft);color:var(--plum)}
+.tag.beguda{background:var(--tomato-soft);color:var(--tomato-d)}
+.tag.gluten{background:var(--tomato-soft);color:var(--danger)}
+.tag.nogluten{background:var(--olive-soft);color:var(--olive-d)}
+.tag.qty{background:var(--sea-soft);color:var(--sea)}
+.prices{margin-top:9px;border-top:1.5px dashed var(--line);padding-top:8px;font-size:.85rem}
+.prices .row{display:flex;gap:8px;align-items:baseline;padding:3px 0}
+.prices .sup{font-weight:700;font-size:.82rem;width:98px;flex:0 0 98px;color:var(--muted)}
+.prices .sup.escollit{color:var(--tomato)}
+.prices .sup.escollit::before{content:"●";color:var(--tomato);font-size:.5rem;margin-right:4px;vertical-align:2px}
+.prices .preu{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+.prices .preu.best{color:var(--olive-d);font-weight:800}
+.prices .preu.best::after{content:" ✓";font-size:.72rem}
+.prices .nota{color:var(--muted);font-size:.76rem}
+.item .choose{margin-top:8px}
+.item .choose .chosen{
+  display:inline-block;
+  background:var(--tomato-soft);color:var(--tomato-d);
+  font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:99px;
+}
+.cat-header{
+  font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--olive-d);
+  border-left:4px solid var(--tomato);border-bottom:1.5px dashed var(--line);
+  padding:10px 8px;margin:16px 0 10px;
+}
+.cat-header b{color:var(--tomato)}
+.empty{color:var(--muted);font-style:italic;padding:10px 2px;font-size:.9rem}
 
 /* ---------- Sobrants ---------- */
-.sobrant{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:9px;background:#fff}
-.sobrant .nom{font-weight:600}
+.sobrant{
+  display:flex;gap:12px;align-items:center;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:12px 15px;margin-bottom:9px;
+}
+.sobrant .nom{font-weight:700}
 .sobrant .meta{font-size:.82rem;color:var(--muted);margin-top:2px}
-.sobrant .ubi{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase}
-.sobrant .ubi.nevera{background:#dcfce7;color:#166534}
-.sobrant .ubi.congelador{background:#dbeafe;color:#1e40af}
-.sobrant .deadline{font-size:.8rem;font-weight:700;margin-left:auto;white-space:nowrap}
-.sobrant .deadline.urgent{color:var(--danger)}
-.sobrant .deadline.darrere{color:var(--warn)}
+.sobrant .ubi{
+  font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;
+}
+.sobrant .ubi.nevera{background:var(--olive-soft);color:var(--olive-d)}
+.sobrant .ubi.congelador{background:var(--sea-soft);color:var(--sea)}
+.sobrant .deadline{font-size:.82rem;font-weight:800;margin-left:auto;white-space:nowrap}
+.sobrant .deadline.urgent{color:var(--danger);animation:pulse 1.6s ease infinite}
+.sobrant .deadline.darrere{color:#7a5206}
 
 /* ---------- Menú ---------- */
-.day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
-.day h3{color:var(--acc2);margin-bottom:8px}
-.meal{padding:8px 0;border-top:1px dashed var(--line)}
+.day{
+  background:var(--card);border:1.5px solid var(--line);border-radius:16px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.day h3{
+  display:flex;align-items:center;gap:10px;
+  font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.16rem;
+  margin:0 0 6px;color:var(--ink);
+}
+.day h3::before{
+  content:"";width:9px;height:9px;flex:0 0 9px;border-radius:3px;
+  background:linear-gradient(135deg,var(--tomato),var(--mustard));transform:rotate(45deg);
+}
+.meal{padding:9px 0;border-top:1.5px dashed var(--line)}
 .meal:first-of-type{border-top:none}
-.meal .what{font-weight:600}
-.meal .tech{font-size:.8rem;color:var(--muted);margin-top:2px}
+.meal .apat{
+  display:block;margin-bottom:2px;
+  font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--tomato);
+}
+.meal .plat{font-weight:600;font-size:.95rem}
 .meal .who{font-size:.78rem;color:var(--muted);margin-top:2px}
+.meal .tech{
+  display:inline-block;margin-top:5px;
+  font-size:.74rem;font-weight:800;color:var(--olive-d);background:var(--olive-soft);
+  border-radius:99px;padding:2px 10px;
+}
 
 /* ---------- Àpats ---------- */
-.apats .plate{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
-.apats .plate h4{margin:0 0 4px;font-size:.98rem}
-.apats .plate .meta{font-size:.82rem;color:var(--muted);margin-bottom:6px}
-.ing-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.ing{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.8rem}
+.apats .plate{
+  background:var(--card);border:1.5px solid var(--line);border-left:4px solid var(--tomato);
+  border-radius:14px;padding:14px 16px;margin-bottom:12px;
+}
+.apats .plate h4{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.04rem;margin:0 0 3px}
+.apats .plate .meta{font-size:.82rem;color:var(--muted);margin-bottom:4px}
+.apats .apats-day{
+  font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.12rem;
+  color:var(--olive-d);margin:22px 0 10px;
+}
+.ing-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ing{
+  background:var(--paper);border:1px solid var(--line);border-radius:99px;
+  padding:3px 11px;font-size:.8rem;color:var(--ink);
+}
 
-/* ---------- Cuina (procés) ---------- */
-.cuina-day{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
-.cuina-day h3{margin:0 0 8px;color:var(--acc2)}
-.cuina-day ul{margin:0;padding-left:20px}
-.cuina-day li{font-size:.9rem;margin-bottom:4px}
-.cuina-day .tanda{font-weight:700;color:var(--acc)}
+/* ---------- Cuina ---------- */
+.cuina-day{
+  background:var(--card);border:1.5px solid var(--line);border-left:4px solid var(--olive);
+  border-radius:14px;padding:14px 16px;margin-bottom:12px;
+}
+.cuina-day h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.06rem;margin:0 0 8px}
+.cuina-day ul{margin:0;padding:0;list-style:none}
+.cuina-day li{font-size:.9rem;margin-bottom:7px;padding-left:22px;position:relative}
+.cuina-day li::before{
+  content:"";position:absolute;left:4px;top:.6em;width:6px;height:6px;border-radius:99px;background:var(--tomato);
+}
+.cuina-day .tanda{font-weight:800;color:var(--tomato)}
 .cuina-day .note{font-size:.82rem;color:var(--muted);margin-top:6px}
 
-footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
+/* ---------- Animacions ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes itemIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.85)}55%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* ---------- Responsiu (mòbil) ---------- */
 @media (max-width: 640px){
-  header{padding:16px 16px}
-  header h1{font-size:1.15rem}
-  header .meta{font-size:.8rem}
-  .wrap{padding:10px 12px 48px}
-  .tabs{position:sticky;top:0;margin:12px 0;padding:6px 0;gap:6px}
-  .tabs button{flex:1 1 auto;padding:9px 10px;font-size:.82rem;white-space:nowrap}
-  .panel{padding:14px 14px}
+  header{padding:26px 18px 40px}
+  header h1{font-size:1.65rem}
+  header .dates{font-size:.95rem}
+  .wrap{padding:16px 12px 56px}
+  .tabs{
+    position:sticky;top:8px;
+    flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+    gap:4px;padding:5px;margin:0 0 16px;border-radius:14px;
+  }
+  .tabs button{flex:0 0 auto;padding:9px 12px;font-size:.78rem}
+  .panel{padding:16px 15px;border-radius:15px}
   .controls{flex-direction:column;align-items:stretch}
   .controls select{width:100%}
-  .item{flex-direction:column;gap:8px;padding:11px 12px}
-  .item input[type=checkbox]{margin-top:2px}
-  .prices .sup{width:78px;flex:0 0 78px}
-  .sums{gap:6px}
-  .sum{flex:1 1 auto;text-align:center}
+  .item{flex-direction:column;gap:9px;padding:12px 13px}
+  .item input[type=checkbox]{margin-top:1px}
+  .prices .sup{width:86px;flex:0 0 86px}
+  .sums{gap:7px}
+  .sum{flex:1 1 auto;min-width:0}
+  .sum b{font-size:1.08rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
 <header>
-  <a class="back" href="../../index.html">← Menús</a>
-  <h1>Menú setmanal del 17/8/2026 al 23/8/2026</h1>
-  <div class="meta">Del 2026-08-17 al 2026-08-23 · Compra: B — Mercadona + DIA · Total: ≈ 101 € · Patró estiu (7 dinars + 7 sopars) · sense gluten · sense pasta · ràpid i fàcil</div>
+  <a class="back" href="../../index.html">← Tots els menús</a>
+  <p class="eyebrow">Cuina de casa · Barcelona</p>
+  <h1>Menú setmanal</h1>
+  <p class="dates">2026-08-17<span class="sep">→</span>2026-08-23</p>
+  <div class="meta">Patró estiu (7 dinars + 7 sopars) · dinars dl–dv = tupper de l&#x27;Alba · sense gluten · sense pasta · ràpid i fàcil</div>
+  <div class="chips"><span class="chip olive">A — Mercadona</span><span class="chip tomato">≈ 70 €</span></div>
 </header>
 <div class="wrap">
 <div class="tabs">
@@ -175,61 +429,61 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
   <div class="panel">
     <h2>Menú dia a dia</h2>
     <div class="day"><h3>Dilluns 17/8</h3><div class="meal">
-  <div class="what">Dinar — Salmó a la planxa amb arròs blanc i bròquil</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Truita de patates amb amanida verda</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~15 min</div>
+  <div class="tech">inducció ~20 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Truita de patates amb amanida verda</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Salmó a la planxa amb arròs blanc i bròquil</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~20 min</div>
+  <div class="tech">inducció ~15 min</div>
 </div></div><div class="day"><h3>Dimarts 18/8</h3><div class="meal">
-  <div class="what">Dinar — Hamburgueses de vedella a la paella d'acer amb amanida i patata</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Hamburgueses a la paella d'acer amb patata i amanida</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: paella d'acer ~12 min + air fryer</div>
+  <div class="tech">paella d'acer ~12 min + air fryer</div>
 </div><div class="meal">
-  <div class="what">Sopar — Tacos de carn (plat habitual)</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Tacos de carn (plat habitual)</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: olla lenta (0 min actius) + muntar ~10 min</div>
+  <div class="tech">olla lenta (0 min actius) + muntar ~10 min</div>
 </div></div><div class="day"><h3>Dimecres 19/8</h3><div class="meal">
-  <div class="what">Dinar — Cigrons amb pernil (recepta nova)</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Ensaladilla rusa (comprada)</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~20 min</div>
+  <div class="tech">muntar ~5 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Cuixes de pollastre a l'olla lenta + verdura</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Pollastre a l'olla lenta amb verdura</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: olla lenta (0 min actius) + 5 min</div>
+  <div class="tech">olla lenta (0 min actius) + 5 min</div>
 </div></div><div class="day"><h3>Dijous 20/8</h3><div class="meal">
-  <div class="what">Dinar — Lluç (merluza) a l'air fryer amb patates</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Lagrimitas de pollo al limón (sin gluten) amb patates</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: air fryer ~15 min</div>
+  <div class="tech">air fryer ~15 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Amanida completa amb pernil serrano</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Amanida completa amb pernil serrano</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: muntar ~10 min</div>
+  <div class="tech">muntar ~10 min</div>
 </div></div><div class="day"><h3>Divendres 21/8</h3><div class="meal">
-  <div class="what">Dinar — Bacallà a la llauna amb patata panadera</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Pollastre arrebossat sense gluten</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: forn ~30 min</div>
+  <div class="tech">air fryer ~15 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Amanida completa amb ou, tonyina i formatge</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Amanida completa amb ou, tonyina i formatge</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: muntar ~10 min</div>
+  <div class="tech">muntar ~10 min</div>
 </div></div><div class="day"><h3>Dissabte 22/8</h3><div class="meal">
-  <div class="what">Dinar — Paella sense gluten amb marisc i arròs</div>
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Paella de marisc (ració normal)</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~40 min</div>
+  <div class="tech">inducció ~40 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Amanida de tomàquet i alvocat</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Amanida de tomàquet i alvocat</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: muntar ~5 min</div>
-</div></div><div class="day"><h3>Diumenge 23/8</h3><div class="meal">
-  <div class="what">Dinar — Estofat de vedella amb arròs (tanda)</div>
+  <div class="tech">muntar ~5 min</div>
+</div></div><div class="day"><h3>Diumenge 23/8 — dia de TANDES</h3><div class="meal">
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Estofat de vedella amb arròs</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: olla a pressió 30-40 min + inducció (arròs)</div>
+  <div class="tech">olla a pressió 30-40 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Crema de carbassa amb llavors</div>
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Crema de carbassa amb llavors</span></div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: olla a pressió ~20 min</div>
+  <div class="tech">olla a pressió ~20 min</div>
 </div></div>
   </div>
 </section><section id="tab-cuina">
@@ -237,104 +491,105 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
     <h2>Procés de cuina</h2>
     <div class="cuina-day">
   <h3>Dilluns 17/8</h3>
-  <ul><li>Dinar — Salmó a la planxa: 2 filets de salmó rosat (congelat) tallats per la meitat, salpebrats, 3-4 min per banda a la planxa amb un raig d'oli i llimona. Acompanyar amb arròs blanc (1,5 tasses, 15 min) i bròquil al vapor (10 min).</li><li>Sopar — Truita de patates: 6 ous batuts amb patata a dauets daurada a la paella, quallar uns minuts. Amanida verda: enciam, tomàquet i cogombre amb oli, sal i vinagre (20 min).</li></ul>
+  <ul><li>Dinar (tupper Alba) — Truita de patates: 6 ous batuts amb patata a dauets daurada a la paella (patates i ous de casa), quallar uns minuts + amanida verda (enciam, tomàquet, cogombre) amb oli, sal i vinagre (20 min). Una porció al tupper.</li><li>Sopar — Salmó a la planxa: 2 filets de salmó rosat (congelat, descongelat a la nevera la nit abans) tallats per la meitat, salpebrats, 3-4 min per banda a la planxa amb un raig d'oli i llimona. Acompanyar amb arròs blanc (de casa) i bròquil al vapor (15 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dimarts 18/8</h3>
-  <ul><li>Matí (2 min): posar 1 bandeja de taquitos de pollo + 1 de cerdo a l'olla lenta amb espècies; coure 6-8 h a temperatura baixa → llestos per als tacos del sopar.</li><li>Dinar — Hamburgueses a la paella d'acer inoxidable: 6 burgers de vacuno y cerdo (DIA) a la paella d'acer inoxidable ~10-12 min amb un raig d'oli. Amanida verda (enciam, tomàquet) i patata.</li><li>Sopar — Tacos de carn (plat habitual): taquitos de l'olla lenta (llestos) en ~12 tortilles de maíz nixtamalizado (d'Amazon) amb formatge ratllat, enciam, tomàquet, ceba i alvocat.</li></ul>
+  <ul><li>Matí (2 min): posar 1 bandeja de taquitos de pollo + 1 de cerdo a l'olla lenta amb espècies; coure 6-8 h → llestos per als tacos del sopar.</li><li>Dinar (tupper Alba) — Hamburgueses: 6 burgers de vacuno y cerdo (ja comprades) a la paella d'acer inoxidable ~10-12 min + patates a l'air fryer + amanida verda. Una porció al tupper.</li><li>Sopar — Tacos de carn (plat habitual): taquitos de l'olla lenta (llestos) en ~12 tortilles de maíz nixtamalizado (d'Amazon, si en queden al rebost) amb formatge ratllat, enciam, tomàquet, ceba i alvocat.</li></ul>
 </div><div class="cuina-day">
   <h3>Dimecres 19/8</h3>
-  <ul><li>Matí (2 min): posar cuixes de pollastre a l'olla lenta amb verdura tallada (carbassó, pastanaga), un raig d'aigua/brou i espècies; coure 6-8 h a temperatura baixa.</li><li>Dinar — Cigrons amb pernil (recepta nova): sofregir ceba i all, afegir taquitos de pernil, tomàquet triturat i els cigrons de pot escorreguts amb una fulla de llorer; coure 5-10 min (20 min).</li><li>Sopar — Pollastre de l'olla lenta (llest) + verdura de l'olla (5 min).</li></ul>
+  <ul><li>Matí (2 min): posar els contramuslos de pollo a l'olla lenta amb carbassó i pastanaga, brou/aigua i espècies; coure 6-8 h → llestos per sopar.</li><li>Dinar (tupper Alba) — Ensaladilla rusa Findus (ja comprada, sense gluten) + amanida verda (5 min). Una porció al tupper.</li><li>Sopar — Pollastre de l'olla lenta (llest) + verdura de l'olla (carbassó, pastanaga) (5 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dijous 20/8</h3>
-  <ul><li>Dinar — Lluç a l'air fryer: filets de merluza del Cabo (congelats, sense arrebossar — segurs sense gluten) a l'air fryer ~15 min. Patates a l'air fryer amb oli i romaní (~15 min).</li><li>Sopar — Amanida completa amb pernil serrano: enciam, tomàquet, ceba, olives, ou dur i pernil serrano en llonxes; amanir amb oli, vinagre i sal (10 min).</li></ul>
+  <ul><li>Dinar (tupper Alba) — Lagrimitas de pollo al limón sin gluten a l'air fryer ~12-15 min + patates a l'air fryer (15 min) + amanida verda. Una porció al tupper.</li><li>Sopar — Amanida completa: enciam, tomàquet, ceba, olives, ou dur i pernil serrano en llonxes, amanida amb oli i vinagre (10 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Divendres 21/8</h3>
-  <ul><li>Dinar — Bacallà a la llauna amb patata panadera: 4 talls de bacallà trocejat (descongelat) sobre patata a rodanxes amb ceba i tomàquet; al forn ~30 min amb un raig d'oli i llorer.</li><li>Sopar — Amanida completa amb ou, tonyina i formatge: enciam, tomàquet, cogombre, ou dur esmicolat, tonyina i formatge fresc (10 min).</li></ul>
+  <ul><li>Dinar (tupper Alba) — Pollastre arrebossat sense gluten: filetes pechuga de pollo arrebossats amb l'arrebossat sense gluten de casa, a l'air fryer ~15 min + amanida verda. Una porció al tupper.</li><li>Sopar — Amanida completa amb ou dur esmicolat, tonyina i formatge fresc (10 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dissabte 22/8</h3>
-  <ul><li>Dinar — Paella de marisc (inducció ~40 min): sofregir ~500 g d'arròs Albufera amb marisc (llagostins, musclos, calamars), pèsols i pebrot; coure amb caldo ~18-20 min. Ració normal (no es dobla).</li><li>Sopar — Amanida de tomàquet i alvocat: tomàquet a talls, alvocat, ceba i olives amb oli, sal i orenga (5 min).</li></ul>
+  <ul><li>Dinar — Paella de marisc (inducció ~40 min): sofregir ~500 g d'arròs Albufera amb el preparat de marisc ultracongelat, pèsols (de casa) i pebrot, coure ~18-20 min.</li><li>Sopar — Amanida de tomàquet i alvocat (daus congelats de casa) amb oli, sal i orenga (5 min).</li></ul>
 </div><div class="cuina-day">
-  <h3>Diumenge 23/8</h3>
-  <ul><li>Dia de TANDES (2-3 h, es fa tot alhora):</li><li>1. Estofat de vedella — olla a pressió (30-40 min): ~1 kg de vedella a trossos amb ceba, pastanaga i llorer. Es fa al DOBLE → porcions per a la setmana del 24/8 (nevera 3-4 dies + congelador).</li><li>2. Arròs blanc — inducció, 2 tasses (400 g cru → ~1 kg cuit) → base per a saltejats de la setmana vinent.</li><li>3. Crema de carbassa — olla a pressió (20 min): 1,2 kg de carbassa a trossos + ceba, cuita amb aigua/caldo i triturada → sopar avui + 1 porció congelada.</li><li>Dinar — Estofat de vedella amb arròs blanc (2,5-3 h de cocció, d'aquí que sigui tanda).</li></ul>
+  <h3>Diumenge 23/8 — dia de TANDES</h3>
+  <ul><li>TANDES (2-3 h): 1) estofat de vedella (olla a pressió 30-40 min, ~1 kg a trossos amb ceba, pastanaga i llorer) fet al doble → porcions per a la setmana del 24/8; 2) arròs blanc (400 g cru → ~1 kg cuit); 3) crema de carbassa (olla pressió 20 min, 1,2 kg de carbassa + ceba, triturada) → sopar avui + 1 congelada.</li><li>Dinar — Estofat de vedella amb arròs blanc.</li><li>Sopar — Crema de carbassa amb pipelles torrades.</li></ul>
 </div>
   </div>
 </section><section id="tab-apats">
   <div class="panel apats">
     <h2>Àpats</h2>
-    <h3 style="color:var(--acc2);margin:18px 0 10px">Dilluns 17/8</h3><div class="plate">
-  <h4>Salmó a la planxa amb arròs blanc i bròquil</h4>
-  <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~15 min</div>
-  <div class="ing-list"><span class="ing">salmó</span><span class="ing">arròs</span><span class="ing">bròquil</span><span class="ing">llimona</span></div>
-</div><div class="plate">
+    <h3 class="apats-day">Dilluns 17/8</h3><div class="plate">
   <h4>Truita de patates amb amanida verda</h4>
-  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Dinar · 4 persones</div>
   <div class="meta">Tècnica: inducció ~20 min</div>
   <div class="ing-list"><span class="ing">ous</span><span class="ing">patata</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">cogombre</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dimarts 18/8</h3><div class="plate">
-  <h4>Hamburgueses de vedella a la paella d'acer amb amanida i patata</h4>
+</div><div class="plate">
+  <h4>Salmó a la planxa amb arròs blanc i bròquil</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~15 min</div>
+  <div class="ing-list"><span class="ing">salmó</span><span class="ing">arròs</span><span class="ing">bròquil</span><span class="ing">llimona</span></div>
+</div><h3 class="apats-day">Dimarts 18/8</h3><div class="plate">
+  <h4>Hamburgueses a la paella d'acer amb patata i amanida</h4>
   <div class="meta">Dinar · 4 persones</div>
   <div class="meta">Tècnica: paella d'acer ~12 min + air fryer</div>
-  <div class="ing-list"><span class="ing">burger de vacuno y cerdo</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">patata</span></div>
+  <div class="ing-list"><span class="ing">burger de vacuno y cerdo</span><span class="ing">patata</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
 </div><div class="plate">
   <h4>Tacos de carn (plat habitual)</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: olla lenta (0 min actius) + muntar ~10 min</div>
-  <div class="ing-list"><span class="ing">tortillas de maíz</span><span class="ing">taquitos de pollo</span><span class="ing">taquitos de cerdo</span><span class="ing">formatge ratllat</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">alvocat</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dimecres 19/8</h3><div class="plate">
-  <h4>Cigrons amb pernil (recepta nova)</h4>
+  <div class="ing-list"><span class="ing">taquitos de pollo</span><span class="ing">taquitos de cerdo</span><span class="ing">tortilles de maíz</span><span class="ing">formatge ratllat</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">ceba</span><span class="ing">alvocat</span></div>
+</div><h3 class="apats-day">Dimecres 19/8</h3><div class="plate">
+  <h4>Ensaladilla rusa (comprada)</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~20 min</div>
-  <div class="ing-list"><span class="ing">cigrons</span><span class="ing">pernil a taques</span><span class="ing">ceba</span><span class="ing">all</span><span class="ing">tomàquet triturat</span><span class="ing">llorer</span></div>
+  <div class="meta">Tècnica: muntar ~5 min</div>
+  <div class="ing-list"><span class="ing">ensaladilla rusa</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
 </div><div class="plate">
-  <h4>Cuixes de pollastre a l'olla lenta + verdura</h4>
+  <h4>Pollastre a l'olla lenta amb verdura</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: olla lenta (0 min actius) + 5 min</div>
-  <div class="ing-list"><span class="ing">cuixes de pollastre</span><span class="ing">carbassó</span><span class="ing">pastanaga</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dijous 20/8</h3><div class="plate">
-  <h4>Lluç (merluza) a l'air fryer amb patates</h4>
+  <div class="ing-list"><span class="ing">contramuslos de pollo</span><span class="ing">carbassó</span><span class="ing">pastanaga</span></div>
+</div><h3 class="apats-day">Dijous 20/8</h3><div class="plate">
+  <h4>Lagrimitas de pollo al limón (sin gluten) amb patates</h4>
   <div class="meta">Dinar · 4 persones</div>
   <div class="meta">Tècnica: air fryer ~15 min</div>
-  <div class="ing-list"><span class="ing">merluza</span><span class="ing">patates</span><span class="ing">romaní</span></div>
+  <div class="ing-list"><span class="ing">lagrimitas de pollo al limón</span><span class="ing">patata</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
 </div><div class="plate">
   <h4>Amanida completa amb pernil serrano</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: muntar ~10 min</div>
   <div class="ing-list"><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">ceba</span><span class="ing">olives</span><span class="ing">ous</span><span class="ing">pernil serrano</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Divendres 21/8</h3><div class="plate">
-  <h4>Bacallà a la llauna amb patata panadera</h4>
+</div><h3 class="apats-day">Divendres 21/8</h3><div class="plate">
+  <h4>Pollastre arrebossat sense gluten</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: forn ~30 min</div>
-  <div class="ing-list"><span class="ing">bacallà</span><span class="ing">patates</span><span class="ing">ceba</span><span class="ing">tomàquet</span></div>
+  <div class="meta">Tècnica: air fryer ~15 min</div>
+  <div class="ing-list"><span class="ing">filetes pechuga de pollo</span><span class="ing">arrebossat sense gluten</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
 </div><div class="plate">
   <h4>Amanida completa amb ou, tonyina i formatge</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: muntar ~10 min</div>
   <div class="ing-list"><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">cogombre</span><span class="ing">ous</span><span class="ing">tonyina</span><span class="ing">formatge fresc</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Dissabte 22/8</h3><div class="plate">
-  <h4>Paella sense gluten amb marisc i arròs</h4>
+</div><h3 class="apats-day">Dissabte 22/8</h3><div class="plate">
+  <h4>Paella de marisc (ració normal)</h4>
   <div class="meta">Dinar · 4 persones</div>
   <div class="meta">Tècnica: inducció ~40 min</div>
-  <div class="ing-list"><span class="ing">arròs</span><span class="ing">llagostins</span><span class="ing">musclos</span><span class="ing">calamars</span><span class="ing">pèsols</span><span class="ing">pebrot</span></div>
+  <div class="ing-list"><span class="ing">arròs albufera</span><span class="ing">marisc</span><span class="ing">pèsols</span><span class="ing">pebrot</span></div>
 </div><div class="plate">
   <h4>Amanida de tomàquet i alvocat</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: muntar ~5 min</div>
   <div class="ing-list"><span class="ing">tomàquet</span><span class="ing">alvocat</span><span class="ing">ceba</span><span class="ing">olives</span></div>
-</div><h3 style="color:var(--acc2);margin:18px 0 10px">Diumenge 23/8</h3><div class="plate">
-  <h4>Estofat de vedella amb arròs (tanda)</h4>
+</div><h3 class="apats-day">Diumenge 23/8 — dia de TANDES</h3><div class="plate">
+  <h4>Estofat de vedella amb arròs</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: olla a pressió 30-40 min + inducció (arròs)</div>
+  <div class="meta">Tècnica: olla a pressió 30-40 min</div>
   <div class="ing-list"><span class="ing">vedella</span><span class="ing">ceba</span><span class="ing">pastanaga</span><span class="ing">llorer</span><span class="ing">arròs</span></div>
 </div><div class="plate">
   <h4>Crema de carbassa amb llavors</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: olla a pressió ~20 min</div>
-  <div class="ing-list"><span class="ing">carbassa</span><span class="ing">ceba</span><span class="ing">llavors</span></div>
+  <div class="ing-list"><span class="ing">carbassa</span><span class="ing">ceba</span><span class="ing">pipelles</span></div>
 </div>
   </div>
 </section>
 </div>
+<footer><span class="mark">◆</span> Menú setmanal · planificat per a casa, sense gluten i sense presses</footer>
 <script>
 /* ---------- Estat de compres (localStorage) ---------- */
 const KEY = "menu-2026-08-17";
@@ -343,9 +598,9 @@ function saveState(s){ s.updated = Date.now(); localStorage.setItem(KEY, JSON.st
 let state = loadState();
 
 /* ---------- Dades ---------- */
-const FORMAT = {"fresc":{"t":"fresc","c":"green"},"congelat":{"t":"congelat","c":"blue"},"conserva":{"t":"conserva","c":"orange"},"sec":{"t":"sec","c":"purple"},"beguda":{"t":"beguda","c":"teal"},"":{"t":"","c":""}};
-const SUPERMERCATS = ["Mercadona", "DIA", "Amazon"];
-const LLISTA = [{"nom": "Filete de salmón rosado salvaje", "descripcio": "Ultracongelat — dinar dilluns", "format": "congelat", "gluten": true, "quantitat": "2 bandeixes (~4 filets)", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.05, "unitat": "bandeja", "ref": "congelat"}], "categoria": "Marisco y pescado"}, {"nom": "Filetes de merluza del Cabo sin piel", "descripcio": "Ultracongelats, sense arrebossar — dinar dijous", "format": "congelat", "gluten": true, "quantitat": "1 paquet (~600 g)", "per": "Dinar dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 5.5, "unitat": "paquet", "ref": "sense arrebossar"}], "categoria": "Marisco y pescado"}, {"nom": "Taquitos de pollo", "descripcio": "Per als tacos de dimarts", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.63, "unitat": "bandeja", "ref": "—"}], "categoria": "Carne"}, {"nom": "Taquitos de cerdo", "descripcio": "Es barreja amb els de pollo", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.12, "unitat": "bandeja", "ref": "—"}], "categoria": "Carne"}, {"nom": "Queso rallado 4 quesos", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Tacos dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.75, "unitat": "paquet", "ref": "—"}], "categoria": "Charcutería y quesos"}, {"nom": "Burger de vacuno y cerdo", "descripcio": "6 uds · 540 g — dinar dimarts (paella d'acer)", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Dinar dimarts", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 4.29, "unitat": "6 uds 540 g", "ref": "7,94 €/kg"}, {"super": "Mercadona", "preu": 5.9, "unitat": "bandeja 4 uds", "ref": "~14,75 €/kg"}], "categoria": "Carnes / Hamburguesas, carne picada y albóndigas"}, {"nom": "Tortillas de maíz nixtamalizado", "descripcio": "La Jefa, 42 uds — només si cal reomplir", "format": "sec", "gluten": true, "quantitat": "2 packs 500 g", "per": "Tacos dimarts", "escollit": "Amazon", "preus": [{"super": "Amazon", "preu": 15.99, "unitat": "42 uds", "ref": "orientatiu"}], "categoria": "Panadería / Tortillas de trigo y pitas"}, {"nom": "Garbanzos cocidos", "descripcio": "Vegecampo DIA", "format": "conserva", "gluten": true, "quantitat": "2 pots 400 g", "per": "Cigrons amb pernil dimecres", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 0.8, "unitat": "pot 400 g", "ref": "Vegecampo"}, {"super": "Mercadona", "preu": 1.1, "unitat": "pot 570 g", "ref": "Hacendado"}], "categoria": "Arroz, pastas y legumbres / Garbanzos y alubias"}, {"nom": "Taquitos de jamón serrano", "descripcio": "Per als cigrons amb pernil", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Cigrons amb pernil dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.5, "unitat": "paquet", "ref": "orientatiu"}], "categoria": "Charcutería y quesos"}, {"nom": "Contramuslos de pollo", "descripcio": "Per a l'olla lenta de dimecres", "format": "fresc", "gluten": true, "quantitat": "~1,2 kg", "per": "Sopar dimecres (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 6.0, "unitat": "~1,2 kg", "ref": "~5 €/kg"}, {"super": "DIA", "preu": 2.57, "unitat": "cuartos traseros 920 g", "ref": "2,79 €/kg"}], "categoria": "Carne"}, {"nom": "Bacalao troceado", "descripcio": "MSC — dinar divendres", "format": "congelat", "gluten": true, "quantitat": "360 g", "per": "Bacallà a la llauna divendres", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 3.99, "unitat": "360 g", "ref": "11,08 €/kg"}], "categoria": "Congelados y helados / Pescado y marisco"}, {"nom": "Arroz Albufera", "descripcio": "Per a la paella de dissabte", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.95, "unitat": "1 kg", "ref": "2,95 €/kg"}], "categoria": "Arroz, legumbres y pasta"}, {"nom": "Langostinos, mejillones y calamares", "descripcio": "Llagostins, musclos i calamars", "format": "fresc", "gluten": true, "quantitat": "~1,2 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 14.0, "unitat": "~1,2 kg", "ref": "fresc o congelat"}], "categoria": "Marisco y pescado"}, {"nom": "Ternera para guisar", "descripcio": "Estofat de diumenge (tanda doble)", "format": "fresc", "gluten": true, "quantitat": "~1 kg", "per": "Dinar diumenge + tandes setmana 24/8", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 10.0, "unitat": "~1 kg", "ref": "orientatiu ~10 €/kg"}], "categoria": "Carne"}, {"nom": "Atún claro al natural", "descripcio": "Llauna", "format": "conserva", "gluten": true, "quantitat": "2 llaunes", "per": "Amanida completa divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.3, "unitat": "llauna Hacendado", "ref": "—"}], "categoria": "Conservas, caldos y cremas"}, {"nom": "Jamón serrano lonchas", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Amanida completa dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.95, "unitat": "paquet", "ref": "—"}], "categoria": "Charcutería y quesos"}, {"nom": "Queso fresco para ensalada", "descripcio": "Per a l'amanida completa", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Amanida completa divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "peça", "ref": "orientatiu"}], "categoria": "Charcutería y quesos"}, {"nom": "Huevos", "descripcio": "Paquet ~12 uds", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Truita, amanides", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.2, "unitat": "~12 uds", "ref": "—"}, {"super": "DIA", "preu": 3.05, "unitat": "12 uds L", "ref": "3,05 €/dotzena"}], "categoria": "Huevos, leche y mantequilla"}, {"nom": "Patata", "descripcio": "2 kg", "format": "fresc", "gluten": true, "quantitat": "2 kg", "per": "Truita, air fryer, panadera", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.6, "unitat": "2 kg", "ref": "~0,80 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Brócoli", "descripcio": "2 peces", "format": "fresc", "gluten": true, "quantitat": "2 peces", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.22, "unitat": "2 peces", "ref": "1,11 €/peça"}], "categoria": "Fruta y verdura"}, {"nom": "Tomate", "descripcio": "1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "1 kg", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Lechuga (cogollos)", "descripcio": "Cogollos", "format": "fresc", "gluten": true, "quantitat": "1 bossa", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "bossa", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Pepino", "descripcio": "2 unitats", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "2 unitats", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Aguacate en dados Hacendado congelado", "descripcio": "Tallats a daus i congelats (compra habitual de casa)", "format": "congelat", "gluten": true, "quantitat": "1 paquet 500 g", "per": "Tacos dimarts + amanida dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.5, "unitat": "paquet 500 g", "ref": "7,00 €/kg"}], "categoria": "Congelados"}, {"nom": "Cebolla", "descripcio": "3 unitats", "format": "fresc", "gluten": true, "quantitat": "3 unitats", "per": "Cigrons, amanides, estofat", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "3 unitats", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Ajo", "descripcio": "Cabeces", "format": "fresc", "gluten": true, "quantitat": "2 cabeces", "per": "Cigrons, sofregits", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.5, "unitat": "2 cabeces", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Calabacín", "descripcio": "2 unitats", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Olla lenta dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.4, "unitat": "2 unitats", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Zanahoria", "descripcio": "1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Olla lenta + estofat", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.8, "unitat": "1 kg", "ref": "—"}], "categoria": "Fruta y verdura"}, {"nom": "Calabaza", "descripcio": "1,2 kg a trossos", "format": "fresc", "gluten": true, "quantitat": "1,2 kg", "per": "Crema diumenge", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.39, "unitat": "1,2 kg", "ref": "1,99 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Aceitunas y encurtidos", "descripcio": "Bosc de conserva", "format": "conserva", "gluten": true, "quantitat": "1 pot", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "pot", "ref": "orientatiu"}], "categoria": "Aperitivos"}, {"nom": "Piña", "descripcio": "La més barata de les bases (2 €/kg)", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Postre/fruita", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.42, "unitat": "peça", "ref": "2,00 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Tomate triturado", "descripcio": "Hacendado, bote", "format": "conserva", "gluten": true, "quantitat": "1 bote", "per": "Cigrons amb pernil dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.0, "unitat": "bote", "ref": "—"}], "categoria": "Conservas, caldos y cremas"}, {"nom": "Pimiento", "descripcio": "1 unitat (vermell o verd)", "format": "fresc", "gluten": true, "quantitat": "1 unitat", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.8, "unitat": "1 unitat", "ref": "orientatiu"}], "categoria": "Fruta y verdura"}, {"nom": "Limón", "descripcio": "Per al salmó de dilluns", "format": "fresc", "gluten": true, "quantitat": "1 unitat", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.5, "unitat": "1 unitat", "ref": "orientatiu"}], "categoria": "Fruta y verdura"}, {"nom": "Aceite de oliva virgen", "descripcio": "Hacendado, botella", "format": "sec", "gluten": true, "quantitat": "1 botella", "per": "Base cuina", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.2, "unitat": "botella", "ref": "—"}], "categoria": "Aceite, especias y salsas"}];
+const FORMAT = {"fresc":{"t":"fresc","c":"fresc"},"congelat":{"t":"congelat","c":"congelat"},"conserva":{"t":"conserva","c":"conserva"},"sec":{"t":"sec","c":"sec"},"beguda":{"t":"beguda","c":"beguda"},"":{"t":"","c":""}};
+const SUPERMERCATS = ["Mercadona", "Amazon"];
+const LLISTA = [{"nom": "Lagrimitas de pollo al limón empanadas sin gluten", "descripcio": "dinar dijous (tupper Alba)", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Dinar dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.44, "unitat": "bandeja", "ref": "8,40 €/kg"}], "categoria": "Carne"}, {"nom": "Filetes pechuga de pollo", "descripcio": "dinar divendres — arrebossar sense gluten", "format": "fresc", "gluten": true, "quantitat": "1 bandeja (~0,56 kg)", "per": "Dinar divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.09, "unitat": "bandeja", "ref": "7,30 €/kg"}], "categoria": "Carne"}, {"nom": "Taquitos de pollo", "descripcio": "tacos de dimarts (olla lenta)", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Sopar dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.63, "unitat": "bandeja", "ref": "7,30 €/kg"}], "categoria": "Carne"}, {"nom": "Taquitos de cerdo", "descripcio": "tacos de dimarts (barreja)", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Sopar dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.12, "unitat": "bandeja", "ref": "5,30 €/kg"}], "categoria": "Carne"}, {"nom": "Contramuslos de pollo deshuesados y sin piel", "descripcio": "olla lenta de dimecres", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Sopar dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.58, "unitat": "bandeja", "ref": "6,50 €/kg"}], "categoria": "Carne"}, {"nom": "Ternera para guisar", "descripcio": "estofat de diumenge (tanda)", "format": "fresc", "gluten": true, "quantitat": "~1 kg (carnisseria)", "per": "Dinar diumenge", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 10.0, "unitat": "bandeja", "ref": "estimat"}], "categoria": "Carne"}, {"nom": "Filete de salmón rosado salvaje con piel Hacendado", "descripcio": "sopar dilluns — descongelar nit abans", "format": "congelat", "gluten": true, "quantitat": "2 peces", "per": "Sopar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.05, "unitat": "bandeja", "ref": "13,50 €/kg"}], "categoria": "Marisco y pescado"}, {"nom": "Preparado de paella y sopa Hacendado", "descripcio": "marisc per a la paella de dissabte", "format": "congelat", "gluten": true, "quantitat": "1 paquet", "per": "Dinar dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.25, "unitat": "bandeja", "ref": "6,21 €/kg"}], "categoria": "Marisco y pescado"}, {"nom": "Aguacate en dados Hacendado congelado", "descripcio": "tacos i amanida de dissabte (habitual)", "format": "congelat", "gluten": true, "quantitat": "1 paquet 500 g", "per": "Tacos + amanida", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.5, "unitat": "bandeja", "ref": "7,00 €/kg"}], "categoria": "Congelados"}, {"nom": "Queso rallado 4 quesos Hacendado", "descripcio": "per ratllar als tacos", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Sopar dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.75, "unitat": "bandeja", "ref": "8,75 €/kg"}], "categoria": "Charcutería y quesos"}, {"nom": "Jamón serrano Incarlopsa lonchas", "descripcio": "amanida de dijous", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Sopar dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.95, "unitat": "bandeja", "ref": "16,46 €/kg"}], "categoria": "Charcutería y quesos"}, {"nom": "Queso fresco Burgos natural Hacendado", "descripcio": "amanida de divendres", "format": "fresc", "gluten": true, "quantitat": "Pack-4", "per": "Sopar divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.15, "unitat": "bandeja", "ref": "4,60 €/kg"}], "categoria": "Charcutería y quesos"}, {"nom": "Atún claro en aceite de oliva Hacendado", "descripcio": "amanida de divendres", "format": "conserva", "gluten": true, "quantitat": "1 lata", "per": "Sopar divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.55, "unitat": "bandeja", "ref": "18,90 €/kg"}], "categoria": "Conservas, caldos y cremas"}, {"nom": "Patatas especial para freír", "descripcio": "patates air fryer (dimarts i dijous)", "format": "fresc", "gluten": true, "quantitat": "1 malla", "per": "Dinars dimarts i dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.9, "unitat": "bandeja", "ref": "1,95 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Brócoli", "descripcio": "sopar dilluns al vapor", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Sopar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.11, "unitat": "bandeja", "ref": "3,00 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Tomate", "descripcio": "amanides i paella", "format": "fresc", "gluten": true, "quantitat": "~1 kg", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.02, "unitat": "bandeja", "ref": "1,50 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Lechuga Iceberg", "descripcio": "amanides", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.9, "unitat": "bandeja", "ref": "0,90 €/ud"}], "categoria": "Fruta y verdura"}, {"nom": "Pepino", "descripcio": "amanides", "format": "fresc", "gluten": true, "quantitat": "1 unitat", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.33, "unitat": "bandeja", "ref": "1,50 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Cebollas", "descripcio": "amanides, tacos, olla lenta, estofat", "format": "fresc", "gluten": true, "quantitat": "1 malla", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "bandeja", "ref": "2,00 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Ajo", "descripcio": "sofregits i olla lenta", "format": "fresc", "gluten": true, "quantitat": "1 cabeça", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.5, "unitat": "bandeja", "ref": "estimat"}], "categoria": "Fruta y verdura"}, {"nom": "Calabacín", "descripcio": "olla lenta de dimecres", "format": "fresc", "gluten": true, "quantitat": "1-2 unitats", "per": "Sopar dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.7, "unitat": "bandeja", "ref": "1,60 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Zanahoria", "descripcio": "olla lenta i estofat", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.8, "unitat": "bandeja", "ref": "1,60 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Calabaza cacahuete cortada a trozos", "descripcio": "crema de diumenge", "format": "fresc", "gluten": true, "quantitat": "1 bandeja 1,2 kg", "per": "Sopar diumenge", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.39, "unitat": "bandeja", "ref": "4,60 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Pimiento verde", "descripcio": "paella de dissabte", "format": "fresc", "gluten": true, "quantitat": "1 unitat", "per": "Dinar dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.81, "unitat": "bandeja", "ref": "2,80 €/kg"}], "categoria": "Fruta y verdura"}, {"nom": "Aceitunas verdes con hueso Hacendado", "descripcio": "amanides", "format": "conserva", "gluten": true, "quantitat": "1 tarro", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.4, "unitat": "bandeja", "ref": "5,57 €/kg"}], "categoria": "Aperitivos"}, {"nom": "Limón", "descripcio": "salmó de dilluns", "format": "fresc", "gluten": true, "quantitat": "1 unitat", "per": "Sopar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.5, "unitat": "bandeja", "ref": "estimat"}], "categoria": "Fruta y verdura"}, {"nom": "Arroz Albufera Hacendado", "descripcio": "paella de dissabte", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Dinar dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.95, "unitat": "bandeja", "ref": "2,95 €/kg"}], "categoria": "Arroz, legumbres y pasta"}, {"nom": "Aceite de oliva virgen Hacendado", "descripcio": "bàsic — només si cal", "format": "sec", "gluten": true, "quantitat": "1 botella", "per": "Setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.2, "unitat": "bandeja", "ref": "4,20 €/l"}], "categoria": "Aceite, especias y salsas"}];
 function escHTML(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 
 /* ---------- Rendering llista ---------- */
@@ -353,6 +608,7 @@ const listEl = document.getElementById("list");
 const boughtEl = document.getElementById("bought");
 let order = "super";
 let dir = 1;
+let firstRender = true;
 
 function tagHTML(it){
   let h = "";
@@ -440,8 +696,16 @@ function renderList(){
   const todo = items.filter(i=>!done[i.nom]);
   const bought = items.filter(i=>done[i.nom]);
   renderSums();
-  listEl.innerHTML = groupHTML(todo) || `<div class="empty">Res per comprar 🎉</div>`;
-  boughtEl.innerHTML = groupHTML(bought) || `<div class="empty">Cap producte comprat encara.</div>`;
+  listEl.innerHTML = groupHTML(todo) || `<div class="empty">Res per comprar. Tot a punt!</div>`;
+  boughtEl.innerHTML = groupHTML(bought) || `<div class="empty">Cap producte marcat com a comprat.</div>`;
+  if(firstRender){
+    const els = document.querySelectorAll("#list .item, #bought .item");
+    els.forEach((el,i)=>{
+      el.style.animation = `itemIn .45s cubic-bezier(.2,.7,.3,1) both`;
+      el.style.animationDelay = Math.min(i*26, 400)+"ms";
+    });
+    firstRender = false;
+  }
 }
 function groupHTML(items){
   if(!items.length) return "";
@@ -470,7 +734,7 @@ function itemHTML(it){
       <div class="nom">${it.nom}</div>
       ${it.descripcio?`<div class="descr">${it.descripcio}</div>`:""}
       ${it.per?`<div class="per">${it.per}</div>`:""}
-      <div class="tags">${tagHTML(it)}${it.quantitat?`<span class="tag" style="background:#e0f2fe;color:#075985">${it.quantitat}</span>`:""}</div>
+      <div class="tags">${tagHTML(it)}${it.quantitat?`<span class="tag qty">${it.quantitat}</span>`:""}</div>
       ${priceHTML(it)}
       ${it.escollit?`<div class="choose"><span class="chosen">comprar a ${it.escollit}</span></div>`:""}
     </div>
@@ -493,8 +757,8 @@ function renderSums(){
       if(done[it.nom]){ sums[it.escollit].doneV+=p.preu; sums[it.escollit].done++; } }
   }
   document.getElementById("sums").innerHTML = SUPERMERCATS.map(s=>
-    `<span class="sum">${s}: <b>${fmt(sums[s].tot)}</b></span>`).join("")
-    + `<span class="sum">TOTAL: <b>${fmt(gTot)}</b></span>`;
+    `<span class="sum"><span class="sum-l">${s}</span><b>${fmt(sums[s].tot)}</b></span>`).join("")
+    + `<span class="sum sum-tot"><span class="sum-l">Total</span><b>${fmt(gTot)}</b></span>`;
 }
 
 /* ---------- Sobrants ---------- */
@@ -601,47 +865,77 @@ async function ghPut(path, content, sha, token){
   if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); const e = new Error(j.message || ("HTTP "+r.status)); e.status = r.status; throw e; }
   return j;
 }
+let syncing = false;
 async function doSync(){
-  if(!syncBtn) return;
+  if(!syncBtn || syncing) return;
+  syncing = true;
   syncBtn.disabled = true;
   syncMsg("Sincronitzant...");
-  const token = getToken();
-  if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); syncBtn.disabled = false; return; }
-  const MAX_ATTEMPTS = 5;
-  for(let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++){
-    try{
-      const remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
-      const local = loadState();
-      const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
-      let winner;
-      if(remoteNewer){
-        winner = remote.data;                // el núvol és més recent → sobreescriu
-        syncMsg("El núvol és més recent: he rebut l'estat de l'altre dispositiu.");
-      }else{
-        winner = local;                      // aquest dispositiu és igual o més recent → puja
-        syncMsg(remote.data ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
-      }
-      let payload;
-      if(winner === local){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
-      else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
-      state = payload;
-      const res = await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
-      renderList();
-      syncMsg("✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
-      return;
-    }catch(e){
-      // Conflicte de concurrència (status 422): un altre dispositiu ha modificat
-      // el fitxer entre el GET i el PUT. Re-llegim el núvol i reintentem.
-      if(e.status===422 && attempt < MAX_ATTEMPTS){
-        syncMsg("Algun dispositiu ha canviat l'estat alhora. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
-        await new Promise(r=>setTimeout(r, 400));
+  try{
+    const token = getToken();
+    if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); return; }
+    const MAX_ATTEMPTS = 6;
+    const sleep = ms => new Promise(r=>setTimeout(r, ms));
+    let lastErr = null;
+    for(let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++){
+      let remote;
+      try{
+        remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
+      }catch(e){
+        lastErr = e;
+        syncMsg("No es pot llegir el núvol. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
+        await sleep(300);
         continue;
       }
-      syncMsg("Error de sincronització: " + (e.message||e), "err");
-      break;
+      const local = loadState();
+      const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
+      let winner, from;
+      if(remoteNewer){
+        winner = remote.data;                // el núvol és més recent → sobreescriu
+        from = "cloud";
+      }else{
+        winner = local;                      // aquest dispositiu és igual o més recent → puja
+        from = "local";
+      }
+      let payload;
+      if(from==="local"){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
+      else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
+      state = payload;
+      try{
+        await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
+        renderList();
+        syncMsg(from==="cloud"
+          ? "✓ He rebut l'estat de l'altre dispositiu."
+          : "✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
+        return;
+      }catch(e){
+        // Conflicte de concurrència (status 422): un altre dispositiu ha modificat
+        // el fitxer entre el GET i el PUT. Re-llegim el núvol i reintentem.
+        if(e.status===422){
+          // Si el núvol ja conté exactament el que volíem pujar, ja està fet.
+          const remote2 = await ghGet(SYNC_PATH, token).catch(()=>null);
+          if(remote2 && remote2.data && JSON.stringify(remote2.data)===JSON.stringify(payload)){
+            localStorage.setItem(KEY, JSON.stringify(remote2.data));
+            state = remote2.data;
+            renderList();
+            syncMsg("✓ Ja estava al núvol (un altre dispositiu ho havia pujat).", "ok");
+            return;
+          }
+          if(attempt < MAX_ATTEMPTS){
+            syncMsg("Conflicte amb un altre dispositiu. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
+            await sleep(250*attempt);
+            continue;
+          }
+        }
+        lastErr = e;
+        break;
+      }
     }
+    syncMsg("Error de sincronització: " + (lastErr ? (lastErr.message||lastErr) : "conflicte persistent entre dispositius. Torna-ho a provar en uns segons."), "err");
+  }finally{
+    syncing = false;
+    syncBtn.disabled = false;
   }
-  syncBtn.disabled = false;
 }
 if(syncBtn) syncBtn.addEventListener("click", doSync);
 
