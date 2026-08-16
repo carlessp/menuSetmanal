@@ -555,14 +555,19 @@ function syncMsg(text, cls){
 }
 function getToken(){
   let t = localStorage.getItem(SYNC_TOKEN_KEY);
-  if(!t){ t = prompt("Token d'accés personal de GitHub (repo scope). Sense token no es pot pujar l'estat. Només es guarda en aquest dispositiu (localStorage)."); if(t) localStorage.setItem(SYNC_TOKEN_KEY, t.trim()); }
+  if(!t){ t = prompt("Token d'accés personal de GitHub (repo scope). Sense token no es pot sincronitzar. Només es guarda en aquest dispositiu (localStorage)."); if(t) localStorage.setItem(SYNC_TOKEN_KEY, t.trim()); }
   return t;
 }
-async function ghGet(path){
-  const url = `https://raw.githubusercontent.com/${SYNC_REPO}/${SYNC_BRANCH}/${path}`;
-  const r = await fetch(url);
-  if(!r.ok) return null;
-  return r.json();
+function b64decode(s){
+  try{ return decodeURIComponent(escape(atob(s))); }catch(e){ try{ return atob(s); }catch(_){ return ""; } }
+}
+async function ghGet(path, token){
+  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}?ref=${SYNC_BRANCH}`;
+  const r = await fetch(url, { headers:{ "Authorization":`token ${token}` } });
+  if(r.status===404) return { data:null, sha:null };
+  if(!r.ok){ const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
+  const j = await r.json();
+  return { data: j.content ? JSON.parse(b64decode(j.content)) : null, sha: j.sha };
 }
 async function ghPut(path, content, sha, token){
   const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}`;
@@ -577,13 +582,6 @@ async function ghPut(path, content, sha, token){
   if(!r.ok){ throw new Error(j.message || ("HTTP "+r.status)); }
   return j;
 }
-async function ghGetMeta(path, token){
-  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}?ref=${SYNC_BRANCH}`;
-  const r = await fetch(url, { headers:{ "Authorization":`token ${token}` } });
-  if(r.status===404) return null;
-  if(!r.ok){ const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
-  return r.json();
-}
 async function doSync(){
   if(!syncBtn) return;
   syncBtn.disabled = true;
@@ -591,27 +589,22 @@ async function doSync(){
   try{
     const token = getToken();
     if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); return; }
-    const remote = await ghGet(SYNC_PATH);           // contingut actual (raw, sense token)
-    let sha = null;
-    if(remote){
-      const meta = await ghGetMeta(SYNC_PATH, token); // sha per poder sobrescriure
-      sha = meta ? meta.sha : null;
-    }
+    const remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
     const local = loadState();
-    const remoteNewer = remote && (remote.updated||0) > (local.updated||0);
+    const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
     let winner;
     if(remoteNewer){
-      winner = remote;                       // el núvol és més recent → sobreescriu
+      winner = remote.data;                // el núvol és més recent → sobreescriu
       syncMsg("El núvol és més recent: he rebut l'estat de l'altre dispositiu.");
     }else{
-      winner = local;                        // aquest dispositiu és igual o més recent → puja
-      syncMsg(remote ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
+      winner = local;                      // aquest dispositiu és igual o més recent → puja
+      syncMsg(remote.data ? "Actualitzant el núvol amb l'estat d'aquest dispositiu..." : "No hi havia dades al núvol. Pujant l'estat d'aquest dispositiu...");
     }
     let payload;
     if(winner === local){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
     else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
     state = payload;
-    const res = await ghPut(SYNC_PATH, payload, sha, token); // puja exactament el que s'ha desat
+    const res = await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
     renderList();
     syncMsg("✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
   }catch(e){
