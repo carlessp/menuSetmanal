@@ -23,6 +23,8 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;b
 header{padding:20px 24px;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
 header h1{margin:0 0 6px;font-size:1.5rem}
 header .meta{font-size:.92rem;opacity:.92}
+header .back{display:inline-block;margin-bottom:10px;color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 12px}
+header .back:hover{background:rgba(255,255,255,.28)}
 .wrap{max-width:1080px;margin:0 auto;padding:16px 24px 64px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
 .tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;font-weight:600;font-size:.9rem}
@@ -68,6 +70,17 @@ h3{font-size:1rem;margin:0}
 .item .choose .chosen{display:inline-block;background:var(--acc);color:#fff;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px}
 .section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 0 10px}
 .empty{color:var(--muted);font-style:italic;padding:8px 0}
+
+/* ---------- Sobrants ---------- */
+.sobrant{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:9px;background:#fff}
+.sobrant .nom{font-weight:600}
+.sobrant .meta{font-size:.82rem;color:var(--muted);margin-top:2px}
+.sobrant .ubi{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase}
+.sobrant .ubi.nevera{background:#dcfce7;color:#166534}
+.sobrant .ubi.congelador{background:#dbeafe;color:#1e40af}
+.sobrant .deadline{font-size:.8rem;font-weight:700;margin-left:auto;white-space:nowrap}
+.sobrant .deadline.urgent{color:var(--danger)}
+.sobrant .deadline.darrere{color:var(--warn)}
 
 /* ---------- Menú ---------- */
 .day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
@@ -116,12 +129,14 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
 </head>
 <body>
 <header>
+  <a class="back" href="../../index.html">← Menús</a>
   <h1>Menú setmanal del 17/8/2026 al 23/8/2026</h1>
-  <div class="meta">Del 2026-08-17 al 2026-08-23 · Compra: C — Mercadona + DIA + ALDI (+ ofertes Lidl) · Total: ≈ 153 € · Patró estiu (7 dinars + 7 sopars) · sense gluten · sense pasta</div>
+  <div class="meta">Del 2026-08-17 al 2026-08-23 · Compra: B — Mercadona + DIA · Total: ≈ 84 € · Patró estiu (7 dinars + 7 sopars) · sense gluten · sense pasta · ràpid i fàcil</div>
 </header>
 <div class="wrap">
 <div class="tabs">
   <button class="active" data-tab="tab-llista">Llista de la compra</button>
+  
   <button data-tab="tab-menu">Menú</button>
   <button data-tab="tab-cuina">Cuina</button>
   <button data-tab="tab-apats">Àpats</button>
@@ -151,55 +166,55 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
   <div class="who"> · 4 persones</div>
   <div class="tech">Tècnica: inducció ~15 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Cuixes de pollastre rostides + arròs saltejat</div>
+  <div class="what">Sopar — Truita de patates amb amanida verda</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~10 min, tot de la nevera</div>
+  <div class="tech">Tècnica: inducció ~20 min</div>
 </div></div><div class="day"><h3>Dimarts 18/8</h3><div class="meal">
-  <div class="what">Dinar — Hamburgueses de vedella amb patates a l'air fryer</div>
+  <div class="what">Dinar — Hamburgueses de vedella a la paella d'acer inoxidable</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: air fryer ~15 min</div>
+  <div class="tech">Tècnica: paella d'acer ~12 min</div>
 </div><div class="meal">
   <div class="what">Sopar — Tacos de carn (plat habitual)</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~10 min + muntar</div>
+  <div class="tech">Tècnica: olla lenta (0 min actius) + muntar ~10 min</div>
 </div></div><div class="day"><h3>Dimecres 19/8</h3><div class="meal">
-  <div class="what">Dinar — Lluç a la romana (sense gluten) amb amanida</div>
+  <div class="what">Dinar — Cigrons amb pernil (recepta nova)</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~15 min</div>
+  <div class="tech">Tècnica: inducció ~20 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Cuixes de pollastre a l'olla lenta + llenties</div>
+  <div class="what">Sopar — Cuixes de pollastre a l'olla lenta + verdura</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: olla lenta (0 min actius) + inducció 5 min</div>
+  <div class="tech">Tècnica: olla lenta (0 min actius) + 5 min</div>
 </div></div><div class="day"><h3>Dijous 20/8</h3><div class="meal">
-  <div class="what">Dinar — Pollastre rostit al forn amb verdures</div>
+  <div class="what">Dinar — Lluç (merluza) a l'air fryer amb patates</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: air fryer 12 L ~20 min actius + 1 h rostit sense vigilar</div>
+  <div class="tech">Tècnica: air fryer ~15 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Gaspatxo fred amb ou i pernil serrano</div>
+  <div class="what">Sopar — Amanida completa amb pernil serrano</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: muntar ~5 min</div>
+  <div class="tech">Tècnica: muntar ~10 min</div>
 </div></div><div class="day"><h3>Divendres 21/8</h3><div class="meal">
   <div class="what">Dinar — Bacallà a la llauna amb patata panadera</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: forn/inducció ~30 min</div>
+  <div class="tech">Tècnica: forn ~30 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Arròs de la paella de dissabte + restes de pollastre</div>
+  <div class="what">Sopar — Amanida completa amb ou, tonyina i formatge</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: inducció ~10 min, tot aprofitat</div>
+  <div class="tech">Tècnica: muntar ~10 min</div>
 </div></div><div class="day"><h3>Dissabte 22/8</h3><div class="meal">
   <div class="what">Dinar — Paella sense gluten amb marisc i arròs</div>
   <div class="who"> · 4 persones</div>
   <div class="tech">Tècnica: inducció ~40 min</div>
 </div><div class="meal">
-  <div class="what">Sopar — Amanida completa amb ou i formatge</div>
+  <div class="what">Sopar — Amanida de tomàquet i alvocat</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: muntar ~10 min</div>
+  <div class="tech">Tècnica: muntar ~5 min</div>
 </div></div><div class="day"><h3>Diumenge 23/8</h3><div class="meal">
-  <div class="what">Dinar — Rostit de pollastre i vedella amb arròs</div>
+  <div class="what">Dinar — Rostit de vedella amb arròs (tanda)</div>
   <div class="who"> · 4 persones</div>
-  <div class="tech">Tècnica: air fryer (rostit) + inducció (arròs)</div>
+  <div class="tech">Tècnica: olla a pressió 30-40 min + inducció (arròs)</div>
 </div><div class="meal">
-  <div class="what">Sopar — Crema de carbassa amb llavors i dauets de pernil</div>
+  <div class="what">Sopar — Crema de carbassa amb llavors</div>
   <div class="who"> · 4 persones</div>
   <div class="tech">Tècnica: olla a pressió ~20 min</div>
 </div></div>
@@ -209,25 +224,25 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
     <h2>Procés de cuina</h2>
     <div class="cuina-day">
   <h3>Dilluns 17/8</h3>
-  <ul><li>Dinar — Salmó a la planxa: 2 filets de salmó tallats per la meitat (o 4 porcions), salpebrar i fer a la planxa 3-4 min per banda amb un raig d'oli i unes gotes de llimona. Acompanyar amb arròs blanc [tanda diumenge] i bròquil al vapor.</li><li>Sopar — Cuixes de pollastre (de tanda) + arròs saltejat: cuixes de la nevera escalfades + arròs de la nevera saltejat amb verdura tallada (carbassó, pebrot) i un ou remenat (10 min).</li></ul>
+  <ul><li>Dinar — Salmó a la planxa: 2 filets de salmó rosat (congelat) tallats per la meitat, salpebrats, 3-4 min per banda a la planxa amb un raig d'oli i llimona. Acompanyar amb arròs blanc (1,5 tasses, 15 min) i bròquil al vapor (10 min).</li><li>Sopar — Truita de patates: 6 ous batuts amb patata a dauets daurada a la paella, quallar uns minuts. Amanida verda: enciam, tomàquet i cogombre amb oli, sal i vinagre (20 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dimarts 18/8</h3>
-  <ul><li>Dinar — Hamburgueses a l'air fryer: 4 burgers de vacuno (o 8) a l'air fryer ~10 min; patates a bastonets amb oli i romaní, air fryer ~15 min. Amanida verda: enciam + tomàquet, oli, vinagre i sal.</li><li>Sopar — Tacos de carn (plat habitual): sofregir 1 bandeja de taquitos de pollo + 1 de cerdo a la paella amb un raig d'oli (10 min). Muntar amb ~12 tortilles de maíz nixtamalizado (d'Amazon), formatge ratllat, enciam, tomàquet, ceba i alvocat.</li></ul>
+  <ul><li>Matí (2 min): posar 1 bandeja de taquitos de pollo + 1 de cerdo a l'olla lenta amb espècies; coure 6-8 h a temperatura baixa → llestos per als tacos del sopar.</li><li>Dinar — Hamburgueses a la paella d'acer inoxidable: 6 burgers de vacuno y cerdo (DIA) a la paella d'acer inoxidable ~10-12 min amb un raig d'oli. Amanida verda (enciam, tomàquet) i patata.</li><li>Sopar — Tacos de carn (plat habitual): taquitos de l'olla lenta (llestos) en ~12 tortilles de maíz nixtamalizado (d'Amazon) amb formatge ratllat, enciam, tomàquet, ceba i alvocat.</li></ul>
 </div><div class="cuina-day">
   <h3>Dimecres 19/8</h3>
-  <ul><li>Matí (2 min): posar 1,6-2 kg de cuixes de pollastre a l'olla lenta amb verdura tallada (carbassó, pastanaga), un raig de brou/aigua i espècies; coure 6-8 h a temperatura baixa.</li><li>Dinar — Lluç a la romana sense gluten: enfarinar 4 filets de lluç amb farina de blat de moro, fregir a la paella amb oli ~3-4 min per banda (15 min). Amanida de tomàquet i alvocat.</li><li>Sopar — Pollastre de l'olla lenta (llest) + llenties de tanda: escalfar les llenties cuites amb una mica de verdura (5 min).</li></ul>
+  <ul><li>Matí (2 min): posar cuixes de pollastre a l'olla lenta amb verdura tallada (carbassó, pastanaga), un raig d'aigua/brou i espècies; coure 6-8 h a temperatura baixa.</li><li>Dinar — Cigrons amb pernil (recepta nova): sofregir ceba i all, afegir taquitos de pernil, tomàquet triturat i els cigrons de pot escorreguts amb una fulla de llorer; coure 5-10 min (20 min).</li><li>Sopar — Pollastre de l'olla lenta (llest) + verdura de l'olla (5 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dijous 20/8</h3>
-  <ul><li>Dinar — Pollastre rostit a l'air fryer: 1 pollastre sencer (~1,9 kg) salpebrat i amanit, air fryer 200 °C ~1 h sense vigilar (20 min actius). Verdures rostides acompanyant: patata, ceba i pastanaga. Es fa al doble (2 pollastres) → sobra per a divendres.</li><li>Sopar — Gaspatxo fred: servir gaspatxo Hacendado ben fred amb ou dur esmicolat i pernil serrano a taques (5 min).</li></ul>
+  <ul><li>Dinar — Lluç a l'air fryer: filets de merluza del Cabo (congelats, sense arrebossar — segurs sense gluten) a l'air fryer ~15 min. Patates a l'air fryer amb oli i romaní (~15 min).</li><li>Sopar — Amanida completa amb pernil serrano: enciam, tomàquet, ceba, olives, ou dur i pernil serrano en llonxes; amanir amb oli, vinagre i sal (10 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Divendres 21/8</h3>
-  <ul><li>Dinar — Bacallà a la llauna amb patata panadera: 4 talls de bacallà dessalat sobre patata a rodanxes, ceba i tomàquet, al forn ~30 min amb un raig d'oli i llorer.</li><li>Sopar — Arròs de la paella de dissabte: arròs de paella saltejat amb verdura i restes de pollastre rostit a daus (10 min).</li></ul>
+  <ul><li>Dinar — Bacallà a la llauna amb patata panadera: 4 talls de bacallà trocejat (descongelat) sobre patata a rodanxes amb ceba i tomàquet; al forn ~30 min amb un raig d'oli i llorer.</li><li>Sopar — Amanida completa amb ou, tonyina i formatge: enciam, tomàquet, cogombre, ou dur esmicolat, tonyina i formatge fresc (10 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Dissabte 22/8</h3>
-  <ul><li>Paella de marisc (inducció ~40 min): sofregir 1 kg d'arròs Albufera amb marisc (langostinos, musclos, calamars), pèsols i pebrot; coure amb caldo ~18-20 min. Es fa al DOBLE → sobra per a divendres.</li><li>Patates pelades i tallades per a la setmana (en un pot amb aigua a la nevera).</li><li>Sopar — Amanida completa: enciam, tomàquet, ceba, olives, ou dur, tonyina i formatge fresc; amanir amb oli, vinagre i sal (10 min).</li></ul>
+  <ul><li>Dinar — Paella de marisc (inducció ~40 min): sofregir ~500 g d'arròs Albufera amb marisc (llagostins, musclos, calamars), pèsols i pebrot; coure amb caldo ~18-20 min. Ració normal (no es dobla).</li><li>Sopar — Amanida de tomàquet i alvocat: tomàquet a talls, alvocat, ceba i olives amb oli, sal i orenga (5 min).</li></ul>
 </div><div class="cuina-day">
   <h3>Diumenge 23/8</h3>
-  <ul><li>Dia de TANDES (2-3 h, es fa tot alhora):</li><li>1. Cuixes de pollastre rostides — air fryer 12 L, 2 tandes (~40 min). 1,6-2 kg salpebrades i amanides amb espècies → 5 porcions: 3 a la nevera (dilluns i dimarts) + 2 al congelador</li><li>2. Arròs blanc — inducció, 2 tasses (400 g cru → ~1 kg cuit) → base per saltejats</li><li>3. Llenties cuites — olla a pressió, 400 g en sec (~25-30 min) → per dimarts/divendres + congelades</li><li>4. Crema de carbassa — olla a pressió (20 min): 1,2 kg de carbassa a trossos + ceba, cuita amb caldo i triturada → sopar avui + 1 porció congelada</li><li>Dinar — Rostit: pollastre rostit + vedella a trossos amb arròs blanc i verdura (air fryer + inducció).</li></ul>
+  <ul><li>Dia de TANDES (2-3 h, es fa tot alhora):</li><li>1. Estofat de vedella — olla a pressió (30-40 min): ~1 kg de vedella a trossos amb ceba, pastanaga i llorer. Es fa al DOBLE → porcions per a la setmana del 24/8 (nevera 3-4 dies + congelador).</li><li>2. Arròs blanc — inducció, 2 tasses (400 g cru → ~1 kg cuit) → base per a saltejats de la setmana vinent.</li><li>3. Crema de carbassa — olla a pressió (20 min): 1,2 kg de carbassa a trossos + ceba, cuita amb aigua/caldo i triturada → sopar avui + 1 porció congelada.</li><li>Dinar — Estofat de vedella amb arròs blanc (2,5-3 h de cocció, d'aquí que sigui tanda).</li></ul>
 </div>
   </div>
 </section><section id="tab-apats">
@@ -239,70 +254,70 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 8px}
   <div class="meta">Tècnica: inducció ~15 min</div>
   <div class="ing-list"><span class="ing">salmó</span><span class="ing">arròs</span><span class="ing">bròquil</span><span class="ing">llimona</span></div>
 </div><div class="plate">
-  <h4>Cuixes de pollastre rostides + arròs saltejat</h4>
+  <h4>Truita de patates amb amanida verda</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~10 min, tot de la nevera</div>
-  <div class="ing-list"><span class="ing">cuixes de pollastre</span><span class="ing">arròs</span><span class="ing">verdura</span></div>
+  <div class="meta">Tècnica: inducció ~20 min</div>
+  <div class="ing-list"><span class="ing">ous</span><span class="ing">patata</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">cogombre</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Dimarts 18/8</h3><div class="plate">
-  <h4>Hamburgueses de vedella amb patates a l'air fryer</h4>
+  <h4>Hamburgueses de vedella a la paella d'acer inoxidable</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: air fryer ~15 min</div>
-  <div class="ing-list"><span class="ing">burger de vacuno</span><span class="ing">patates</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
+  <div class="meta">Tècnica: paella d'acer ~12 min</div>
+  <div class="ing-list"><span class="ing">burger de vacuno y cerdo</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">patata</span></div>
 </div><div class="plate">
   <h4>Tacos de carn (plat habitual)</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~10 min + muntar</div>
+  <div class="meta">Tècnica: olla lenta (0 min actius) + muntar ~10 min</div>
   <div class="ing-list"><span class="ing">tortillas de maíz</span><span class="ing">taquitos de pollo</span><span class="ing">taquitos de cerdo</span><span class="ing">formatge ratllat</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">alvocat</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Dimecres 19/8</h3><div class="plate">
-  <h4>Lluç a la romana (sense gluten) amb amanida</h4>
+  <h4>Cigrons amb pernil (recepta nova)</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~15 min</div>
-  <div class="ing-list"><span class="ing">lluç</span><span class="ing">farina de blat de moro</span><span class="ing">tomàquet</span><span class="ing">alvocat</span></div>
+  <div class="meta">Tècnica: inducció ~20 min</div>
+  <div class="ing-list"><span class="ing">cigrons</span><span class="ing">pernil a taques</span><span class="ing">ceba</span><span class="ing">all</span><span class="ing">tomàquet triturat</span><span class="ing">llorer</span></div>
 </div><div class="plate">
-  <h4>Cuixes de pollastre a l'olla lenta + llenties</h4>
+  <h4>Cuixes de pollastre a l'olla lenta + verdura</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: olla lenta (0 min actius) + inducció 5 min</div>
-  <div class="ing-list"><span class="ing">cuixes de pollastre</span><span class="ing">llenties</span><span class="ing">verdura</span></div>
+  <div class="meta">Tècnica: olla lenta (0 min actius) + 5 min</div>
+  <div class="ing-list"><span class="ing">cuixes de pollastre</span><span class="ing">carbassó</span><span class="ing">pastanaga</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Dijous 20/8</h3><div class="plate">
-  <h4>Pollastre rostit al forn amb verdures</h4>
+  <h4>Lluç (merluza) a l'air fryer amb patates</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: air fryer 12 L ~20 min actius + 1 h rostit sense vigilar</div>
-  <div class="ing-list"><span class="ing">pollastre sencer</span><span class="ing">patates</span><span class="ing">ceba</span><span class="ing">pastanaga</span></div>
+  <div class="meta">Tècnica: air fryer ~15 min</div>
+  <div class="ing-list"><span class="ing">merluza</span><span class="ing">patates</span><span class="ing">romaní</span></div>
 </div><div class="plate">
-  <h4>Gaspatxo fred amb ou i pernil serrano</h4>
+  <h4>Amanida completa amb pernil serrano</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: muntar ~5 min</div>
-  <div class="ing-list"><span class="ing">gaspatxo</span><span class="ing">ous</span><span class="ing">pernil serrano</span></div>
+  <div class="meta">Tècnica: muntar ~10 min</div>
+  <div class="ing-list"><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">ceba</span><span class="ing">olives</span><span class="ing">ous</span><span class="ing">pernil serrano</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Divendres 21/8</h3><div class="plate">
   <h4>Bacallà a la llauna amb patata panadera</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: forn/inducció ~30 min</div>
+  <div class="meta">Tècnica: forn ~30 min</div>
   <div class="ing-list"><span class="ing">bacallà</span><span class="ing">patates</span><span class="ing">ceba</span><span class="ing">tomàquet</span></div>
 </div><div class="plate">
-  <h4>Arròs de la paella de dissabte + restes de pollastre</h4>
+  <h4>Amanida completa amb ou, tonyina i formatge</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: inducció ~10 min, tot aprofitat</div>
-  <div class="ing-list"><span class="ing">arròs de paella</span><span class="ing">pollastre rostit</span><span class="ing">verdura</span></div>
+  <div class="meta">Tècnica: muntar ~10 min</div>
+  <div class="ing-list"><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">cogombre</span><span class="ing">ous</span><span class="ing">tonyina</span><span class="ing">formatge fresc</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Dissabte 22/8</h3><div class="plate">
   <h4>Paella sense gluten amb marisc i arròs</h4>
   <div class="meta">Dinar · 4 persones</div>
   <div class="meta">Tècnica: inducció ~40 min</div>
-  <div class="ing-list"><span class="ing">arròs</span><span class="ing">langostinos</span><span class="ing">musclos</span><span class="ing">calamars</span><span class="ing">pèsols</span><span class="ing">pebrot</span></div>
+  <div class="ing-list"><span class="ing">arròs</span><span class="ing">llagostins</span><span class="ing">musclos</span><span class="ing">calamars</span><span class="ing">pèsols</span><span class="ing">pebrot</span></div>
 </div><div class="plate">
-  <h4>Amanida completa amb ou i formatge</h4>
+  <h4>Amanida de tomàquet i alvocat</h4>
   <div class="meta">Sopar · 4 persones</div>
-  <div class="meta">Tècnica: muntar ~10 min</div>
-  <div class="ing-list"><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">ceba</span><span class="ing">olives</span><span class="ing">ous</span><span class="ing">tonyina</span><span class="ing">formatge fresc</span></div>
+  <div class="meta">Tècnica: muntar ~5 min</div>
+  <div class="ing-list"><span class="ing">tomàquet</span><span class="ing">alvocat</span><span class="ing">ceba</span><span class="ing">olives</span></div>
 </div><h3 style="color:var(--acc2);margin:18px 0 10px">Diumenge 23/8</h3><div class="plate">
-  <h4>Rostit de pollastre i vedella amb arròs</h4>
+  <h4>Rostit de vedella amb arròs (tanda)</h4>
   <div class="meta">Dinar · 4 persones</div>
-  <div class="meta">Tècnica: air fryer (rostit) + inducció (arròs)</div>
-  <div class="ing-list"><span class="ing">pollastre</span><span class="ing">vedella</span><span class="ing">arròs</span><span class="ing">verdura</span></div>
+  <div class="meta">Tècnica: olla a pressió 30-40 min + inducció (arròs)</div>
+  <div class="ing-list"><span class="ing">vedella</span><span class="ing">ceba</span><span class="ing">pastanaga</span><span class="ing">llorer</span><span class="ing">arròs</span></div>
 </div><div class="plate">
-  <h4>Crema de carbassa amb llavors i dauets de pernil</h4>
+  <h4>Crema de carbassa amb llavors</h4>
   <div class="meta">Sopar · 4 persones</div>
   <div class="meta">Tècnica: olla a pressió ~20 min</div>
-  <div class="ing-list"><span class="ing">carbassa</span><span class="ing">pernil serrano</span><span class="ing">llavors</span></div>
+  <div class="ing-list"><span class="ing">carbassa</span><span class="ing">ceba</span><span class="ing">llavors</span></div>
 </div>
   </div>
 </section>
@@ -316,8 +331,9 @@ let state = loadState();
 
 /* ---------- Dades ---------- */
 const FORMAT = {"fresc":{"t":"fresc","c":"green"},"congelat":{"t":"congelat","c":"blue"},"conserva":{"t":"conserva","c":"orange"},"sec":{"t":"sec","c":"purple"},"beguda":{"t":"beguda","c":"teal"},"":{"t":"","c":""}};
-const SUPERMERCATS = ["Mercadona", "ALDI", "Caprabo", "DIA", "Lidl"];
-const LLISTA = [{"nom": "Cuixes de pollastre (tanda)", "descripcio": "1,6-2 kg — tanda air fryer + olla lenta", "format": "fresc", "gluten": true, "quantitat": "1,6-2 kg", "per": "Tanda: dilluns, dimecres sopar", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 10.0, "unitat": "1,6-2 kg", "ref": "~5 €/kg"}, {"super": "DIA", "preu": 2.57, "unitat": "cuartos traseros 920 g", "ref": "2,79 €/kg"}]}, {"nom": "Filete de salmó", "descripcio": "2 bandeixes (~4 filets)", "format": "fresc", "gluten": true, "quantitat": "2 bandeixes", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 8.05, "unitat": "bandeja ~350 g", "ref": "23,00 €/kg"}, {"super": "ALDI", "preu": 7.99, "unitat": "congelat 375 g", "ref": "21,31 €/kg"}, {"super": "Caprabo", "preu": 7.79, "unitat": "llom 300 g", "ref": "26 €/kg"}]}, {"nom": "Burger de vacuno", "descripcio": "8 unitats", "format": "fresc", "gluten": true, "quantitat": "2 bandeixes", "per": "Dinar dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 5.9, "unitat": "bandeja 4 uds", "ref": "~14,75 €/kg"}, {"super": "ALDI", "preu": 2.49, "unitat": "4 uds 320 g", "ref": "7,78 €/kg"}]}, {"nom": "Pollastre sencer", "descripcio": "2 unitats ~1,9 kg (rostit doble)", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Dinar dijous (doble) + reserves", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 11.4, "unitat": "2 × ~1,9 kg", "ref": "3,00 €/kg"}]}, {"nom": "Taquitos de pollo", "descripcio": "Per als tacos", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.63, "unitat": "bandeja", "ref": "—"}]}, {"nom": "Taquitos de cerdo", "descripcio": "Es barreja amb els de pollo", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.12, "unitat": "bandeja", "ref": "—"}]}, {"nom": "Queso rallado 4 quesos", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Tacos dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.75, "unitat": "paquet", "ref": "—"}, {"super": "ALDI", "preu": 1.89, "unitat": "mozzarella 250 g", "ref": "7,56 €/kg"}]}, {"nom": "Tortillas de maíz nixtamalizado", "descripcio": "La Jefa/Taxco, 42 uds — només si cal reomplir", "format": "sec", "gluten": true, "quantitat": "2 packs 500 g", "per": "Tacos dimarts", "escollit": "Amazon", "preus": [{"super": "Amazon", "preu": 15.99, "unitat": "42 uds", "ref": "orientatiu"}]}, {"nom": "Llenties en sec", "descripcio": "400 g per a la tanda d'olla a pressió", "format": "sec", "gluten": true, "quantitat": "400 g", "per": "Sopar dimecres + congelar", "escollit": "DIA", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "400 g", "ref": "~5 €/kg"}, {"super": "DIA", "preu": 1.95, "unitat": "pardinas 1 kg", "ref": "1,95 €/kg"}]}, {"nom": "Arroz Albufera", "descripcio": "Per a la paella al doble", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.95, "unitat": "1 kg", "ref": "2,95 €/kg"}, {"super": "Caprabo", "preu": 2.65, "unitat": "LA FALLERA 1 kg", "ref": "2,65 €/kg"}]}, {"nom": "Arròs rodó", "descripcio": "Tanda d'arròs blanc", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Arròs de setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "1 kg", "ref": "1,20 €/kg"}, {"super": "DIA", "preu": 1.2, "unitat": "llarg 1 kg", "ref": "1,20 €/kg"}]}, {"nom": "Tonina clara al natural", "descripcio": "Llauna", "format": "conserva", "gluten": true, "quantitat": "2 llaunes", "per": "Amanida completa", "escollit": "ALDI", "preus": [{"super": "Mercadona", "preu": 1.3, "unitat": "llauna Hacendado", "ref": "—"}, {"super": "ALDI", "preu": 4.02, "unitat": "pack 6×60 g", "ref": "SAL DE PLATA"}]}, {"nom": "Jamón serrano a llunes", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Gaspatxo + crema de carbassa", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.95, "unitat": "paquet", "ref": "—"}]}, {"nom": "Ous", "descripcio": "Paquet ~12 uds", "format": "fresc", "gluten": true, "quantitat": "2 paquets", "per": "Gaspatxo, amanides", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.2, "unitat": "~12 uds", "ref": "—"}, {"super": "DIA", "preu": 3.05, "unitat": "12 uds L", "ref": "3,05 €/dotzena"}]}, {"nom": "Gaspatxo fresc", "descripcio": "Hacendado, botella", "format": "beguda", "gluten": true, "quantitat": "1 botella", "per": "Sopar dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.65, "unitat": "botella", "ref": "—"}]}, {"nom": "Llom de salmó (Caprabo)", "descripcio": "EROSKI NATUR GGN, safata 300 g", "format": "fresc", "gluten": true, "quantitat": "300 g", "per": "Alternativa al salmó de dilluns", "escollit": "Caprabo", "preus": [{"super": "Caprabo", "preu": 7.79, "unitat": "300 g", "ref": "26 €/kg"}, {"super": "Mercadona", "preu": 8.05, "unitat": "bandeja ~350 g", "ref": "23,00 €/kg"}]}, {"nom": "Carbassa", "descripcio": "1,2 kg a trossos", "format": "fresc", "gluten": true, "quantitat": "1,2 kg", "per": "Crema diumenge", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.39, "unitat": "1,2 kg", "ref": "1,99 €/kg"}]}, {"nom": "Marisc per a la paella", "descripcio": "Langostinos, musclos i calamars", "format": "fresc", "gluten": true, "quantitat": "~1,5 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 12.0, "unitat": "~1,5 kg", "ref": "fresc o congelat"}]}, {"nom": "Filete de lluç", "descripcio": "Pesca-dia (fresc) o congelat", "format": "fresc", "gluten": true, "quantitat": "~600 g", "per": "Dinar dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.6, "unitat": "congelat ~600 g", "ref": "~6 €/kg"}]}, {"nom": "Bacallà dessalat", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Dinar divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 9.5, "unitat": "bandeja", "ref": "—"}]}];
+const SUPERMERCATS = ["Mercadona", "DIA", "Amazon"];
+const LLISTA = [{"nom": "Filete de salmó rosat salvaje", "descripcio": "Ultracongelat — dinar dilluns", "format": "CONGELAT", "gluten": true, "quantitat": "2 bandeixes (~4 filets)", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.05, "unitat": "bandeja", "ref": "congelat"}]}, {"nom": "Filetes de merluza del Cabo sin piel", "descripcio": "Ultracongelats, sense arrebossar — dinar dijous", "format": "CONGELAT", "gluten": true, "quantitat": "1 paquet (~600 g)", "per": "Dinar dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 5.5, "unitat": "paquet", "ref": "sense arrebossar"}]}, {"nom": "Taquitos de pollo", "descripcio": "Per als tacos de dimarts", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.63, "unitat": "bandeja", "ref": "—"}]}, {"nom": "Taquitos de cerdo", "descripcio": "Es barreja amb els de pollo", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Tacos dimarts (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.12, "unitat": "bandeja", "ref": "—"}]}, {"nom": "Queso rallado 4 quesos", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Tacos dimarts", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.75, "unitat": "paquet", "ref": "—"}]}, {"nom": "Burger de vacuno y cerdo", "descripcio": "6 uds · 540 g — dinar dimarts (paella d'acer)", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Dinar dimarts", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 4.29, "unitat": "6 uds 540 g", "ref": "7,94 €/kg"}, {"super": "Mercadona", "preu": 5.9, "unitat": "bandeja 4 uds", "ref": "~14,75 €/kg"}]}, {"nom": "Tortillas de maíz nixtamalizado", "descripcio": "La Jefa, 42 uds — només si cal reomplir", "format": "sec", "gluten": true, "quantitat": "2 packs 500 g", "per": "Tacos dimarts", "escollit": "Amazon", "preus": [{"super": "Amazon", "preu": 15.99, "unitat": "42 uds", "ref": "orientatiu"}]}, {"nom": "Cigrons cuits", "descripcio": "Vegecampo DIA", "format": "conserva", "gluten": true, "quantitat": "2 pots 400 g", "per": "Cigrons amb pernil dimecres", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 0.8, "unitat": "pot 400 g", "ref": "Vegecampo"}, {"super": "Mercadona", "preu": 1.1, "unitat": "pot 570 g", "ref": "Hacendado"}]}, {"nom": "Pernil serrano a taques", "descripcio": "Per als cigrons amb pernil", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Cigrons amb pernil dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.5, "unitat": "paquet", "ref": "orientatiu"}]}, {"nom": "Cuixes de pollastre", "descripcio": "Per a l'olla lenta de dimecres", "format": "fresc", "gluten": true, "quantitat": "~1,2 kg", "per": "Sopar dimecres (olla lenta)", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 6.0, "unitat": "~1,2 kg", "ref": "~5 €/kg"}, {"super": "DIA", "preu": 2.57, "unitat": "cuartos traseros 920 g", "ref": "2,79 €/kg"}]}, {"nom": "Bacallà trocejat", "descripcio": "MSC — dinar divendres", "format": "CONGELAT", "gluten": true, "quantitat": "360 g", "per": "Bacallà a la llauna divendres", "escollit": "DIA", "preus": [{"super": "DIA", "preu": 3.99, "unitat": "360 g", "ref": "11,08 €/kg"}]}, {"nom": "Arroz Albufera", "descripcio": "Per a la paella de dissabte", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.95, "unitat": "1 kg", "ref": "2,95 €/kg"}]}, {"nom": "Arròs rodó", "descripcio": "Tanda d'arròs blanc", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Arròs blanc setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "1 kg", "ref": "1,20 €/kg"}, {"super": "DIA", "preu": 1.2, "unitat": "llarg 1 kg", "ref": "1,20 €/kg"}]}, {"nom": "Marisc per a la paella", "descripcio": "Llagostins, musclos i calamars", "format": "fresc", "gluten": true, "quantitat": "~1,2 kg", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 14.0, "unitat": "~1,2 kg", "ref": "fresc o congelat"}]}, {"nom": "Vedella a trossos", "descripcio": "Estofat de diumenge (tanda doble)", "format": "fresc", "gluten": true, "quantitat": "~1 kg", "per": "Dinar diumenge + tandes setmana 24/8", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 10.0, "unitat": "~1 kg", "ref": "orientatiu ~10 €/kg"}]}, {"nom": "Tonina clara al natural", "descripcio": "Llauna", "format": "conserva", "gluten": true, "quantitat": "2 llaunes", "per": "Amanida completa divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.3, "unitat": "llauna Hacendado", "ref": "—"}]}, {"nom": "Jamón serrano llonxes", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 paquet", "per": "Amanida completa dijous", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.95, "unitat": "paquet", "ref": "—"}]}, {"nom": "Queso fresc o formatge per amanida", "descripcio": "Per a l'amanida completa", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Amanida completa divendres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "peça", "ref": "orientatiu"}]}, {"nom": "Ous", "descripcio": "Paquet ~12 uds", "format": "fresc", "gluten": true, "quantitat": "1 paquet", "per": "Truita, amanides", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.2, "unitat": "~12 uds", "ref": "—"}, {"super": "DIA", "preu": 3.05, "unitat": "12 uds L", "ref": "3,05 €/dotzena"}]}, {"nom": "Patata", "descripcio": "2 kg", "format": "fresc", "gluten": true, "quantitat": "2 kg", "per": "Truita, air fryer, panadera", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.6, "unitat": "2 kg", "ref": "~0,80 €/kg"}]}, {"nom": "Bròquil", "descripcio": "2 peces", "format": "fresc", "gluten": true, "quantitat": "2 peces", "per": "Dinar dilluns", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.22, "unitat": "2 peces", "ref": "1,11 €/peça"}]}, {"nom": "Tomàquet", "descripcio": "1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "1 kg", "ref": "—"}]}, {"nom": "Enciam", "descripcio": "Cogollos", "format": "fresc", "gluten": true, "quantitat": "1 bossa", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "bossa", "ref": "—"}]}, {"nom": "Cogombre", "descripcio": "2 unitats", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "2 unitats", "ref": "—"}]}, {"nom": "Alvocat", "descripcio": "2 unitats", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Tacos dimarts + amanida dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.3, "unitat": "2 unitats", "ref": "1,65 €/ud"}]}, {"nom": "Ceba", "descripcio": "3 unitats", "format": "fresc", "gluten": true, "quantitat": "3 unitats", "per": "Cigrons, amanides, estofat", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "3 unitats", "ref": "—"}]}, {"nom": "All", "descripcio": "Cabeces", "format": "fresc", "gluten": true, "quantitat": "2 cabeces", "per": "Cigrons, sofregits", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.5, "unitat": "2 cabeces", "ref": "—"}]}, {"nom": "Carbassó", "descripcio": "2 unitats", "format": "fresc", "gluten": true, "quantitat": "2 unitats", "per": "Olla lenta dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.4, "unitat": "2 unitats", "ref": "—"}]}, {"nom": "Pastanagues", "descripcio": "1 kg", "format": "fresc", "gluten": true, "quantitat": "1 kg", "per": "Olla lenta + estofat", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.8, "unitat": "1 kg", "ref": "—"}]}, {"nom": "Carbassa", "descripcio": "1,2 kg a trossos", "format": "fresc", "gluten": true, "quantitat": "1,2 kg", "per": "Crema diumenge", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 2.39, "unitat": "1,2 kg", "ref": "1,99 €/kg"}]}, {"nom": "Olives i encurtits", "descripcio": "Bosc de conserva", "format": "conserva", "gluten": true, "quantitat": "1 pot", "per": "Amanides setmana", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "pot", "ref": "orientatiu"}]}, {"nom": "Piña fresca", "descripcio": "La més barata de les bases (2 €/kg)", "format": "fresc", "gluten": true, "quantitat": "1 peça", "per": "Postre/fruita", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 3.42, "unitat": "peça", "ref": "2,00 €/kg"}]}, {"nom": "Tomate triturado", "descripcio": "Hacendado, bote", "format": "conserva", "gluten": true, "quantitat": "1 bote", "per": "Cigrons amb pernil dimecres", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 1.0, "unitat": "bote", "ref": "—"}]}, {"nom": "Guisantes extra", "descripcio": "Hacendado", "format": "conserva", "gluten": true, "quantitat": "1 bote", "per": "Paella dissabte", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 0.95, "unitat": "bote", "ref": "—"}]}, {"nom": "Aceite de oliva virgen", "descripcio": "Hacendado, botella", "format": "sec", "gluten": true, "quantitat": "1 botella", "per": "Base cuina", "escollit": "Mercadona", "preus": [{"super": "Mercadona", "preu": 4.2, "unitat": "botella", "ref": "—"}]}];
+function escHTML(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 
 /* ---------- Rendering llista ---------- */
 const listEl = document.getElementById("list");
@@ -400,6 +416,38 @@ function renderSums(){
     `<span class="sum">${s}: <b>${fmt(sums[s].tot)}</b></span>`).join("")
     + `<span class="sum">TOTAL: <b>${fmt(gTot)}</b></span>`;
 }
+
+/* ---------- Sobrants ---------- */
+const SOBRANTS = [];
+function renderSobrants(){
+  const el = document.getElementById("sobrants");
+  if(!el) return;
+  if(!SOBRANTS || SOBRANTS.length===0){
+    el.innerHTML = `<div class="empty">Cap sobrant pendent — cuinar fresc 🎉</div>`;
+    return;
+  }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const totime = ms => Math.ceil(ms/86400000);
+  el.innerHTML = SOBRANTS.map(s=>{
+    const dead = s.data_limita ? new Date(s.data_limita+"T00:00:00") : null;
+    let dl = "", cls = "";
+    if(dead){
+      const d = totime(dead - today);
+      if(d < 0) { cls = "urgent"; dl = "⚠ caducat"; }
+      else if(d === 0) { cls = "urgent"; dl = "avui!"; }
+      else if(d === 1) { cls = "darrere"; dl = "demà"; }
+      else { dl = `${d} dies`; }
+    }
+    const ubi = s.ubicacio==="congelador" ? "congelador" : "nevera";
+    return `<div class="sobrant">
+  <div><div class="nom">${escHTML(s.nom||"")}</div>
+  <div class="meta">${s.racions?`${s.racions} racions`:"1 ració"}${s.desti?` · → ${escHTML(s.desti)}`:""}</div></div>
+  <span class="ubi ${ubi}">${ubi}</span>
+  ${dl?`<span class="deadline ${cls}">${dl}</span>`:""}
+</div>`;
+  }).join("");
+}
+renderSobrants();
 
 /* ---------- Tabs ---------- */
 function showTab(id, btn){
