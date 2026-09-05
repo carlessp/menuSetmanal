@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../../assets/icon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icon-180.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2c2a1a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Menú setmanal del 5 al 8 de setembre de 2026</title>
+<style>
+:root{
+  --paper:#f3ecdc;
+  --card:#fffdf7;
+  --ink:#2b2117;
+  --muted:#8a7860;
+  --line:#e7dabf;
+  --line-s:#f0e7d2;
+  --tomato:#c04a1c;
+  --tomato-d:#95380f;
+  --tomato-soft:#f6ddc9;
+  --olive:#5c6c2e;
+  --olive-d:#43511f;
+  --olive-soft:#e3e7c6;
+  --mustard:#c89114;
+  --mustard-soft:#f4e6b7;
+  --sea:#2f5e7b;
+  --sea-soft:#d9e5ec;
+  --plum:#6b4a78;
+  --plum-soft:#e8dcf0;
+  --danger:#a83a2c;
+  --grain:url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
+  --shadow:0 1px 2px rgba(60,42,15,.05),0 10px 26px -12px rgba(80,55,20,.18);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+}
+body::before{
+  content:"";position:fixed;inset:0;
+  background:var(--grain);opacity:.45;
+  pointer-events:none;z-index:0;
+}
+header,.wrap{position:relative;z-index:1}
+
+/* ---------- Header (portada de cuina) ---------- */
+header{
+  position:relative;overflow:hidden;
+  padding:32px 24px 46px;
+  background:
+    radial-gradient(120% 170% at 88% -15%, rgba(192,74,28,.55), transparent 55%),
+    radial-gradient(120% 150% at 6% 112%, rgba(92,108,46,.6), transparent 58%),
+    linear-gradient(165deg,#2f2d1b 0%,#262a18 60%,#202314 100%);
+  color:#f5efdf;
+}
+header::before{
+  content:"";position:absolute;inset:0;
+  background:var(--grain);opacity:.7;mix-blend-mode:overlay;pointer-events:none;
+}
+header::after{
+  content:"";position:absolute;left:24px;bottom:24px;
+  width:76px;height:5px;border-radius:99px;
+  background:linear-gradient(90deg,var(--tomato),var(--mustard));
+}
+header .back{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-bottom:20px;
+  color:#f5efdf;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid rgba(245,239,223,.38);border-radius:99px;
+  padding:5px 14px;background:rgba(245,239,223,.08);
+  transition:background .2s,border-color .2s;
+}
+header .back:hover{background:rgba(245,239,223,.2);border-color:rgba(245,239,223,.7)}
+header .eyebrow{
+  margin:0 0 8px;
+  font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--mustard-soft);opacity:.95;
+}
+header h1{
+  margin:0 0 10px;
+  font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:clamp(1.75rem,5vw,2.6rem);line-height:1.05;letter-spacing:-.01em;
+}
+header .dates{
+  margin:0 0 16px;
+  font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;
+  font-size:1.05rem;color:var(--mustard-soft);opacity:.95;
+}
+header .dates .sep{opacity:.55;margin:0 5px}
+header .meta{font-size:.9rem;color:rgba(245,239,223,.82);max-width:62ch;margin:0 0 16px}
+header .chips{display:flex;flex-wrap:wrap;gap:8px}
+header .chip{
+  font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 13px;border-radius:99px;
+}
+header .chip.tomato{background:var(--tomato);color:#fff8ee}
+header .chip.olive{background:var(--olive);color:#f6f3e3}
+header .chip.mustard{background:var(--mustard);color:#3a2a05}
+
+/* ---------- Estructura ---------- */
+.wrap{max-width:960px;margin:0 auto;padding:24px 20px 70px}
+.tabs{
+  display:flex;gap:6px;flex-wrap:wrap;
+  position:sticky;top:12px;z-index:20;
+  margin:0 0 20px;padding:6px;
+  background:rgba(243,236,220,.84);
+  border:1px solid var(--line);border-radius:16px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--shadow);
+}
+.tabs::-webkit-scrollbar{display:none}
+.tabs{scrollbar-width:none}
+.tabs button{
+  border:none;background:transparent;color:var(--muted);
+  font-family:inherit;font-weight:800;font-size:.86rem;
+  padding:9px 14px;border-radius:11px;cursor:pointer;
+  transition:background .18s,color .18s,transform .12s;
+}
+.tabs button:hover{color:var(--ink);background:rgba(192,74,28,.08)}
+.tabs button.active{background:var(--tomato);color:#fff8ee;box-shadow:0 4px 12px -5px rgba(192,74,28,.6)}
+.tabs button:focus-visible,.controls select:focus-visible,.controls button:focus-visible,.item input:focus-visible{
+  outline:2px solid var(--tomato);outline-offset:2px;
+}
+section{display:none}
+section.active{display:block;animation:fade .3s ease}
+.panel{
+  background:var(--card);
+  border:1px solid var(--line);border-radius:18px;
+  padding:20px 22px;margin-bottom:18px;
+  box-shadow:var(--shadow);
+  animation:rise .5s cubic-bezier(.2,.7,.3,1) both;
+}
+section:nth-of-type(2) .panel{animation-delay:.05s}
+section:nth-of-type(3) .panel{animation-delay:.1s}
+section:nth-of-type(4) .panel{animation-delay:.15s}
+section:nth-of-type(5) .panel{animation-delay:.2s}
+.panel h2{
+  font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:1.32rem;letter-spacing:-.01em;color:var(--olive-d);
+  margin:0 0 6px;padding-bottom:10px;position:relative;
+}
+.panel h2::after{
+  content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;border-radius:99px;
+  background:linear-gradient(90deg,var(--tomato),var(--mustard));
+}
+.badges{font-size:.86rem;color:var(--muted);margin:4px 0 18px}
+footer{color:var(--muted);font-size:.76rem;text-align:center;padding:28px 0 12px;letter-spacing:.05em}
+footer .mark{color:var(--tomato)}
+
+/* ---------- Llista de la compra ---------- */
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.controls select{
+  font-family:inherit;font-size:.86rem;font-weight:700;color:var(--ink);
+  background:var(--card);border:1.5px solid var(--line);border-radius:11px;
+  padding:8px 34px 8px 13px;cursor:pointer;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='14'%20height='14'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%238a7860'%20stroke-width='2.6'%3E%3Cpath%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 11px center;background-size:13px;
+}
+.controls select:hover{border-color:var(--line-s)}
+.controls #syncBtn{
+  font-family:inherit;font-weight:800;font-size:.86rem;
+  color:#fff8ee;background:var(--olive);border:none;border-radius:11px;
+  padding:8px 14px;cursor:pointer;
+  transition:background .18s,transform .12s;
+}
+.controls #syncBtn:hover{background:var(--olive-d);transform:translateY(-1px)}
+.controls #syncBtn:disabled{opacity:.6;cursor:wait;transform:none}
+.controls #syncBtn:disabled::before{
+  content:"";display:inline-block;width:.72em;height:.72em;
+  border:2px solid #fff;border-top-color:transparent;border-radius:50%;
+  margin-right:7px;vertical-align:-1px;animation:spin 1s linear infinite;
+}
+.controls #resetTokenBtn{
+  background:none;border:none;color:var(--muted);
+  font-size:.74rem;text-decoration:underline;cursor:pointer;padding:6px 4px;
+}
+.sync-msg{font-size:.8rem;margin:-4px 0 12px;color:var(--muted)}
+.sync-msg.ok{color:var(--olive-d);font-weight:700}
+.sync-msg.err{color:var(--danger)}
+.sums{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.sum{
+  background:var(--card);border:1.5px solid var(--line);border-radius:12px;
+  padding:7px 12px;min-width:96px;
+  display:flex;flex-direction:column;gap:1px;
+}
+.sum .sum-l{font-size:.64rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.sum b{font-family:"Fraunces",Georgia,serif;font-size:1.18rem;font-weight:600;color:var(--tomato);font-variant-numeric:tabular-nums}
+.sum-tot{background:var(--olive-soft);border-color:var(--olive)}
+.sum-tot b{color:var(--olive-d)}
+.section-label{
+  display:flex;align-items:center;gap:9px;
+  font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--olive-d);margin:22px 0 10px;
+}
+.section-label::before{content:"";width:7px;height:7px;border-radius:99px;background:var(--tomato)}
+.item{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--card);
+  border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 15px;margin-bottom:9px;
+  transition:border-color .18s,box-shadow .18s,transform .18s,opacity .3s,background .3s;
+}
+.item:hover{border-color:var(--line-s);box-shadow:0 8px 18px -12px rgba(80,55,20,.3);transform:translateY(-1px)}
+.item.checked{opacity:.6;background:var(--paper)}
+.item.checked .nom{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--tomato)}
+.item input[type=checkbox]{
+  appearance:none;-webkit-appearance:none;
+  width:22px;height:22px;flex:0 0 22px;margin:2px 0 0;
+  border:2px solid var(--line-s);border-radius:7px;background:var(--card);
+  cursor:pointer;position:relative;
+  transition:background .15s,border-color .15s;
+}
+.item input[type=checkbox]:hover{border-color:var(--olive)}
+.item input[type=checkbox]:checked{background:var(--olive);border-color:var(--olive);animation:pop .25s ease}
+.item input[type=checkbox]:checked::after{
+  content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2.4px 2.4px 0;transform:rotate(43deg);
+}
+.item .body{flex:1;min-width:0}
+.item .nom{font-weight:700;font-size:.98rem}
+.item .descr{font-size:.84rem;color:var(--muted);margin-top:2px}
+.item .per{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted);margin-top:3px}
+.item .per::before{content:"↳";color:var(--tomato);font-weight:800}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{
+  font-size:.64rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;border:1px solid transparent;white-space:nowrap;
+}
+.tag.fresc{background:var(--olive-soft);color:var(--olive-d)}
+.tag.congelat{background:var(--sea-soft);color:var(--sea)}
+.tag.conserva{background:var(--mustard-soft);color:#7a5206}
+.tag.sec{background:var(--plum-soft);color:var(--plum)}
+.tag.beguda{background:var(--tomato-soft);color:var(--tomato-d)}
+.tag.gluten{background:var(--tomato-soft);color:var(--danger)}
+.tag.nogluten{background:var(--olive-soft);color:var(--olive-d)}
+.tag.qty{background:var(--sea-soft);color:var(--sea)}
+.prices{margin-top:9px;border-top:1.5px dashed var(--line);padding-top:8px;font-size:.85rem}
+.prices .row{display:flex;gap:8px;align-items:baseline;padding:3px 0}
+.prices .sup{font-weight:700;font-size:.82rem;width:98px;flex:0 0 98px;color:var(--muted)}
+.prices .sup.escollit{color:var(--tomato)}
+.prices .sup.escollit::before{content:"●";color:var(--tomato);font-size:.5rem;margin-right:4px;vertical-align:2px}
+.prices .preu{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+.prices .preu.best{color:var(--olive-d);font-weight:800}
+.prices .preu.best::after{content:" ✓";font-size:.72rem}
+.prices .nota{color:var(--muted);font-size:.76rem}
+.item .choose{margin-top:8px}
+.item .choose .chosen{
+  display:inline-block;
+  background:var(--tomato-soft);color:var(--tomato-d);
+  font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:99px;
+}
+.cat-header{
+  font-size:.74rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--olive-d);
+  border-left:4px solid var(--tomato);border-bottom:1.5px dashed var(--line);
+  padding:10px 8px;margin:16px 0 10px;
+}
+.cat-header b{color:var(--tomato)}
+.empty{color:var(--muted);font-style:italic;padding:10px 2px;font-size:.9rem}
+
+/* ---------- Sobrants ---------- */
+.sobrant{
+  display:flex;gap:12px;align-items:center;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:12px 15px;margin-bottom:9px;
+}
+.sobrant .nom{font-weight:700}
+.sobrant .meta{font-size:.82rem;color:var(--muted);margin-top:2px}
+.sobrant .ubi{
+  font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;
+}
+.sobrant .ubi.nevera{background:var(--olive-soft);color:var(--olive-d)}
+.sobrant .ubi.congelador{background:var(--sea-soft);color:var(--sea)}
+.sobrant .deadline{font-size:.82rem;font-weight:800;margin-left:auto;white-space:nowrap}
+.sobrant .deadline.urgent{color:var(--danger);animation:pulse 1.6s ease infinite}
+.sobrant .deadline.darrere{color:#7a5206}
+
+/* ---------- Menú ---------- */
+.day{
+  background:var(--card);border:1.5px solid var(--line);border-radius:16px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.day h3{
+  display:flex;align-items:center;gap:10px;
+  font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.16rem;
+  margin:0 0 6px;color:var(--ink);
+}
+.day h3::before{
+  content:"";width:9px;height:9px;flex:0 0 9px;border-radius:3px;
+  background:linear-gradient(135deg,var(--tomato),var(--mustard));transform:rotate(45deg);
+}
+.meal{padding:9px 0;border-top:1.5px dashed var(--line)}
+.meal:first-of-type{border-top:none}
+.meal .apat{
+  display:block;margin-bottom:2px;
+  font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--tomato);
+}
+.meal .plat{font-weight:600;font-size:.95rem}
+.meal .who{font-size:.78rem;color:var(--muted);margin-top:2px}
+.meal .tech{
+  display:inline-block;margin-top:5px;
+  font-size:.74rem;font-weight:800;color:var(--olive-d);background:var(--olive-soft);
+  border-radius:99px;padding:2px 10px;
+}
+
+/* ---------- Àpats ---------- */
+.apats .plate{
+  background:var(--card);border:1.5px solid var(--line);border-left:4px solid var(--tomato);
+  border-radius:14px;padding:14px 16px;margin-bottom:12px;
+}
+.apats .plate h4{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.04rem;margin:0 0 3px}
+.apats .plate .meta{font-size:.82rem;color:var(--muted);margin-bottom:4px}
+.apats .apats-day{
+  font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.12rem;
+  color:var(--olive-d);margin:22px 0 10px;
+}
+.ing-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ing{
+  background:var(--paper);border:1px solid var(--line);border-radius:99px;
+  padding:3px 11px;font-size:.8rem;color:var(--ink);
+}
+
+/* ---------- Cuina ---------- */
+.cuina-day{
+  background:var(--card);border:1.5px solid var(--line);border-left:4px solid var(--olive);
+  border-radius:14px;padding:14px 16px;margin-bottom:12px;
+}
+.cuina-day h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.06rem;margin:0 0 8px}
+.cuina-day ul{margin:0;padding:0;list-style:none}
+.cuina-day li{font-size:.9rem;margin-bottom:7px;padding-left:22px;position:relative}
+.cuina-day li::before{
+  content:"";position:absolute;left:4px;top:.6em;width:6px;height:6px;border-radius:99px;background:var(--tomato);
+}
+.cuina-day .tanda{font-weight:800;color:var(--tomato)}
+.cuina-day .note{font-size:.82rem;color:var(--muted);margin-top:6px}
+
+/* ---------- Animacions ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes itemIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(.85)}55%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ---------- Responsiu (mòbil) ---------- */
+@media (max-width: 640px){
+  header{padding:26px 18px 40px}
+  header h1{font-size:1.65rem}
+  header .dates{font-size:.95rem}
+  .wrap{padding:16px 12px 56px}
+  .tabs{
+    position:sticky;top:8px;
+    flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+    gap:4px;padding:5px;margin:0 0 16px;border-radius:14px;
+  }
+  .tabs button{flex:0 0 auto;padding:9px 12px;font-size:.78rem}
+  .panel{padding:16px 15px;border-radius:15px}
+  .controls{flex-direction:column;align-items:stretch}
+  .controls select{width:100%}
+  .item{flex-direction:column;gap:9px;padding:12px 13px}
+  .item input[type=checkbox]{margin-top:1px}
+  .prices .sup{width:86px;flex:0 0 86px}
+  .sums{gap:7px}
+  .sum{flex:1 1 auto;min-width:0}
+  .sum b{font-size:1.08rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="../../index.html">← Tots els menús</a>
+  <p class="eyebrow">Cuina de casa · Barcelona</p>
+  <h1>Menú setmanal</h1>
+  <p class="dates">2026-09-05<span class="sep">→</span>2026-09-08</p>
+  <div class="meta">Sense gluten · sense pasta · estiu (dinar i sopar cada dia) · 4 persones</div>
+  <div class="chips"><span class="chip olive">A — Només Mercadona</span><span class="chip tomato">≈ 44 €</span></div>
+</header>
+<div class="wrap">
+<div class="tabs">
+  <button class="active" data-tab="tab-llista">Llista de la compra</button>
+  <button data-tab="tab-sobrants">Sobrants</button>
+  <button data-tab="tab-menu">Menú</button>
+  <button data-tab="tab-cuina">Cuina</button>
+  <button data-tab="tab-apats">Àpats</button>
+</div><section id="tab-llista" class="active">
+  <div class="panel">
+    <h2>Llista de la compra</h2>
+    <div class="badges">Ordena per preu o supermercat, marca els productes que ja has comprat.</div>
+    <div class="controls">
+      <select id="orderSel">
+        <option value="super">Ordenar per supermercat i categoria</option>
+        <option value="categoria">Ordenar per categoria</option>
+        <option value="preuAsc">Preu més barat primer</option>
+        <option value="preuDesc">Preu més car primer</option>
+        <option value="nom">Per nom</option>
+      </select>
+      <button id="syncBtn" type="button" title="Sincronitza l'estat de compra amb el núvol (GitHub)">⟳ Sincronitza</button>
+      <button id="resetTokenBtn" type="button" title="Esborra el token guardat d'aquest dispositiu per posar-ne un de nou" style="display:none">Oblida token</button>
+    </div>
+    <div id="syncMsg" class="sync-msg"></div>
+    <div id="sums" class="sums"></div>
+    <div class="section-label">Per comprar</div>
+    <div id="list"></div>
+    <div class="section-label">Comprats</div>
+    <div id="bought"></div>
+  </div>
+</section>
+  <section id="tab-sobrants">
+  <div class="panel">
+    <h2>Sobrants a aprofitar</h2>
+    <div class="badges">Racions pendents a la nevera o el congelador. Consumeix primer els de la nevera i el més antic del congelador (FIFO).</div>
+    <div id="sobrants"></div>
+  </div>
+  </section>
+<section id="tab-menu">
+  <div class="panel">
+    <h2>Menú dia a dia</h2>
+    <div class="day"><h3>Dissabte 5/9</h3><div class="meal">
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Cigrons amb pernil + pluma de cerdo</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">inducció ~20 min</div>
+</div><div class="meal">
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Truita de patates</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">inducció ~20 min</div>
+</div></div><div class="day"><h3>Diumenge 6/9</h3><div class="meal">
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Llenties amb xoriço i costella</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">olla pressió ~30 min</div>
+</div><div class="meal">
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Bacallà a l'air fryer + patates + verdura</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">air fryer ~15 min</div>
+</div></div><div class="day"><h3>Dilluns 7/9</h3><div class="meal">
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Restes de llenties + arròs</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">escalfar ~5 min</div>
+</div><div class="meal">
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Tacos de carn</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">inducció ~10 min</div>
+</div></div><div class="day"><h3>Dimarts 8/9</h3><div class="meal">
+  <div class="what"><span class="apat">Dinar</span><span class="plat">Sobrants de tacos</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">escalfar ~5 min</div>
+</div><div class="meal">
+  <div class="what"><span class="apat">Sopar</span><span class="plat">Crema freda de pastanaga i taronja + hamburgueses</span></div>
+  <div class="who"> · 4 persones</div>
+  <div class="tech">air fryer ~15 min</div>
+</div></div>
+  </div>
+</section><section id="tab-cuina">
+  <div class="panel">
+    <h2>Procés de cuina</h2>
+    <div class="cuina-day">
+  <h3>Dissabte 5/9</h3>
+  <ul><li>Dinar — Cigrons amb pernil: sofregir 1 ceba i 2 alls, afegir els taquitos de pernil (de casa) i daurar, incorporar 1 bote de tomate triturado, afegir 2 pots de garbanzos cocidos escorreguts + llorer, coure 5-10 min (20 min). Pluma de cerdo a la planxa 4-5 min per banda. Arròs blanc (~350 g cru).</li><li>Sopar — Truita de patates: ~1 kg de patates a dauets daurades amb 6 ous batuts, quallar uns minuts (20 min). Amanida verda amb tomàquet, oli i vinagre.</li></ul>
+</div><div class="cuina-day">
+  <h3>Diumenge 6/9</h3>
+  <ul><li>Dinar — TANDA de llenties (recepta adaptada): sofregir la costilla de cerdo carnosas a tacos i el xoriço asturiano a daus (treure l'oli), afegir ceba, all i pebrot; passar a l'olla a pressió amb 400 g de llenties pardines, pastanaga i patata, llorer i 1,5 l d'aigua; 8 min a alta pressió + 10 min de repos. Arròs blanc a banda. 4 racions a la nevera → dinar de dilluns.</li><li>Sopar — Bacallà congelat (de casa) a l'air fryer ~12-15 min; patates a l'air fryer ~15 min; verdura (bròquil o carbassó) al vapor.</li></ul>
+</div><div class="cuina-day">
+  <h3>Dilluns 7/9</h3>
+  <ul><li>Matí (5 min) — olla lenta: 600 g de pastanagues pelades a rodanxes, 1 ceba, 75 g de mantega, 1 branca de tomillo, comí i sal; 5 h en ALTA → crema freda de pastanaga i taronja per al sopar de dimarts.</li><li>Dinar — Llenties [sobrant nevera] + arròs (5 min).</li><li>Sopar — Tacos: sofregir 1 bandeja de taquitos de pollo + 1 de cerdo amb espècies (10 min); muntar amb ~12 tortilles de maíz, formatge ratllat 4 quesos, aguacate en dados (congelat, descongelat), enciam, tomàquet i ceba. Deixar 2-3 tacos per al dinar de dimarts.</li></ul>
+</div><div class="cuina-day">
+  <h3>Dimarts 8/9</h3>
+  <ul><li>Dinar — Tacos [sobrant nevera] (5 min).</li><li>Sopar — Crema freda: treure el hatillo de tomillo, afegir 300 ml d'aigua i el suc de 2 taronges; triturar fins a crema fina; ajustar amb suc de llimona, sal i pebre blanc. Barrejar olives negres picades amb iogurt grec i pebre negre; servir freda amb una cullerada al centre. Hamburgueses de vacuno a l'air fryer ~10-12 min + patates a l'air fryer ~15 min.</li></ul>
+</div>
+  </div>
+</section><section id="tab-apats">
+  <div class="panel apats">
+    <h2>Àpats</h2>
+    <h3 class="apats-day">Dissabte 5/9</h3><div class="plate">
+  <h4>Cigrons amb pernil + pluma de cerdo</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~20 min</div>
+  <div class="ing-list"><span class="ing">cigrons cuits</span><span class="ing">pernil</span><span class="ing">tomate triturado</span><span class="ing">pluma de cerdo</span><span class="ing">arròs</span></div>
+</div><div class="plate">
+  <h4>Truita de patates</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~20 min</div>
+  <div class="ing-list"><span class="ing">patates</span><span class="ing">ous</span><span class="ing">enciam</span><span class="ing">tomàquet</span></div>
+</div><h3 class="apats-day">Diumenge 6/9</h3><div class="plate">
+  <h4>Llenties amb xoriço i costella</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: olla pressió ~30 min</div>
+  <div class="ing-list"><span class="ing">llenties pardines</span><span class="ing">costilla de cerdo</span><span class="ing">xoriço</span><span class="ing">arròs</span><span class="ing">pastanaga</span><span class="ing">patata</span></div>
+</div><div class="plate">
+  <h4>Bacallà a l'air fryer + patates + verdura</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: air fryer ~15 min</div>
+  <div class="ing-list"><span class="ing">bacallà</span><span class="ing">patates</span><span class="ing">verdura</span></div>
+</div><h3 class="apats-day">Dilluns 7/9</h3><div class="plate">
+  <h4>Restes de llenties + arròs</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: escalfar ~5 min</div>
+  <div class="ing-list"><span class="ing">llenties</span><span class="ing">arròs</span></div>
+</div><div class="plate">
+  <h4>Tacos de carn</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: inducció ~10 min</div>
+  <div class="ing-list"><span class="ing">taquitos de pollo</span><span class="ing">taquitos de cerdo</span><span class="ing">tortilles de maíz</span><span class="ing">formatge ratllat</span><span class="ing">aguacate</span><span class="ing">enciam</span><span class="ing">tomàquet</span><span class="ing">ceba</span></div>
+</div><h3 class="apats-day">Dimarts 8/9</h3><div class="plate">
+  <h4>Sobrants de tacos</h4>
+  <div class="meta">Dinar · 4 persones</div>
+  <div class="meta">Tècnica: escalfar ~5 min</div>
+  <div class="ing-list"><span class="ing">tacos</span></div>
+</div><div class="plate">
+  <h4>Crema freda de pastanaga i taronja + hamburgueses</h4>
+  <div class="meta">Sopar · 4 persones</div>
+  <div class="meta">Tècnica: air fryer ~15 min</div>
+  <div class="ing-list"><span class="ing">pastanagues</span><span class="ing">taronges</span><span class="ing">iogurt grec</span><span class="ing">olives</span><span class="ing">hamburgueses de vacuno</span><span class="ing">patates</span></div>
+</div>
+  </div>
+</section>
+</div>
+<footer><span class="mark">◆</span> Menú setmanal · planificat per a casa, sense gluten i sense presses</footer>
+<script>
+/* ---------- Estat de compres (localStorage) ---------- */
+const KEY = "menu-2026-09-05";
+function loadState(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+function saveState(s){ s.updated = Date.now(); localStorage.setItem(KEY, JSON.stringify(s)); }
+let state = loadState();
+
+/* ---------- Dades ---------- */
+const FORMAT = {"fresc":{"t":"fresc","c":"fresc"},"congelat":{"t":"congelat","c":"congelat"},"conserva":{"t":"conserva","c":"conserva"},"sec":{"t":"sec","c":"sec"},"beguda":{"t":"beguda","c":"beguda"},"":{"t":"","c":""}};
+const SUPERMERCATS = ["Mercadona", "Amazon"];
+const LLISTA = [{"nom": "Pluma de cerdo", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Dinar dissabte", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 3.75, "unitat": "bandeja", "ref": "12,50 €/kg"}]}, {"nom": "Taquitos de cerdo", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "×2", "per": "Tacos dilluns", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 2.12, "unitat": "bandeja", "ref": "5,30 €/kg"}]}, {"nom": "Taquitos de pollo", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "×2", "per": "Tacos dilluns", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 2.63, "unitat": "bandeja", "ref": "7,30 €/kg"}]}, {"nom": "Costillas de cerdo carnosas a tacos", "descripcio": "Bandeja", "format": "fresc", "gluten": true, "quantitat": "1 bandeja", "per": "Llenties diumenge", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 4.96, "unitat": "bandeja", "ref": "8,00 €/kg"}]}, {"nom": "Chorizo asturiano", "descripcio": "Paquete", "format": "fresc", "gluten": true, "quantitat": "1 paquete", "per": "Llenties diumenge", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 2.8, "unitat": "paquete", "ref": "11,20 €/kg"}]}, {"nom": "Hamburguesa de lomo de vacuno", "descripcio": "Paquete", "format": "fresc", "gluten": true, "quantitat": "1 paquete", "per": "Sopar dimarts", "escollit": "Mercadona", "categoria": "Carne", "preus": [{"super": "Mercadona", "preu": 4.0, "unitat": "paquete", "ref": "16,67 €/kg"}]}, {"nom": "Cebollas", "descripcio": "Malla", "format": "fresc", "gluten": true, "quantitat": "1 malla", "per": "Sofregits", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 2.0, "unitat": "malla", "ref": "2,00 €/kg"}]}, {"nom": "Patatas", "descripcio": "Malla", "format": "fresc", "gluten": true, "quantitat": "1 malla", "per": "Truita, guarnicions", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 4.65, "unitat": "malla", "ref": "1,55 €/kg"}]}, {"nom": "Lechuga Iceberg", "descripcio": "Pieza", "format": "fresc", "gluten": true, "quantitat": "1", "per": "Amanides i tacos", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 0.9, "unitat": "pieza", "ref": "0,90 €/ud"}]}, {"nom": "Tomates", "descripcio": "Granel", "format": "fresc", "gluten": true, "quantitat": "~4", "per": "Amanides i tacos", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "~4 uds", "ref": "~1,50 €"}]}, {"nom": "Pimiento rojo", "descripcio": "Pieza", "format": "fresc", "gluten": true, "quantitat": "1", "per": "Llenties diumenge", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 0.65, "unitat": "pieza", "ref": "2,50 €/kg"}]}, {"nom": "Zanahorias", "descripcio": "Granel", "format": "fresc", "gluten": true, "quantitat": "~800 g", "per": "Crema freda i llenties", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 1.3, "unitat": "~800 g", "ref": "~1,30 €"}]}, {"nom": "Naranjas", "descripcio": "Granel", "format": "fresc", "gluten": true, "quantitat": "×2", "per": "Crema freda", "escollit": "Mercadona", "categoria": "Fruta y verdura", "preus": [{"super": "Mercadona", "preu": 1.0, "unitat": "2 uds", "ref": "~1,00 €"}]}, {"nom": "Arroz largo Hacendado", "descripcio": "Paquete 1 kg", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Acompanyament", "escollit": "Mercadona", "categoria": "Arroz, legumbres y pasta", "preus": [{"super": "Mercadona", "preu": 1.2, "unitat": "paquete", "ref": "1,20 €/kg"}]}, {"nom": "Lenteja pardina Hacendado", "descripcio": "Paquete 1 kg", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Llenties diumenge", "escollit": "Mercadona", "categoria": "Arroz, legumbres y pasta", "preus": [{"super": "Mercadona", "preu": 1.95, "unitat": "paquete", "ref": "1,95 €/kg"}]}, {"nom": "Garbanzo Hacendado", "descripcio": "Paquete 1 kg", "format": "sec", "gluten": true, "quantitat": "1 kg", "per": "Reserva", "escollit": "Mercadona", "categoria": "Arroz, legumbres y pasta", "preus": [{"super": "Mercadona", "preu": 2.15, "unitat": "paquete", "ref": "2,15 €/kg"}]}, {"nom": "Garbanzos cocidos Hacendado", "descripcio": "Tarro", "format": "conserva", "gluten": true, "quantitat": "×2", "per": "Cigrons dissabte", "escollit": "Mercadona", "categoria": "Arroz, legumbres y pasta", "preus": [{"super": "Mercadona", "preu": 0.9, "unitat": "tarro", "ref": "2,25 €/kg"}]}, {"nom": "Tomate triturado Hacendado", "descripcio": "Bote", "format": "conserva", "gluten": true, "quantitat": "1", "per": "Cigrons dissabte", "escollit": "Mercadona", "categoria": "Conservas, caldos y cremas", "preus": [{"super": "Mercadona", "preu": 0.55, "unitat": "bote", "ref": "1,38 €/kg"}]}, {"nom": "Huevos grandes L", "descripcio": "Paquete 12", "format": "fresc", "gluten": true, "quantitat": "12", "per": "Truita i crema", "escollit": "Mercadona", "categoria": "Huevos, leche y mantequilla", "preus": [{"super": "Mercadona", "preu": 3.05, "unitat": "paquete", "ref": "3,05 €/ud"}]}, {"nom": "Mantequilla con sal Hacendado", "descripcio": "Pastilla", "format": "fresc", "gluten": true, "quantitat": "1", "per": "Crema freda", "escollit": "Mercadona", "categoria": "Huevos, leche y mantequilla", "preus": [{"super": "Mercadona", "preu": 2.05, "unitat": "pastilla", "ref": "8,20 €/kg"}]}, {"nom": "Queso rallado 4 quesos Hacendado", "descripcio": "Paquete", "format": "fresc", "gluten": true, "quantitat": "1", "per": "Tacos dilluns", "escollit": "Mercadona", "categoria": "Charcutería y quesos", "preus": [{"super": "Mercadona", "preu": 1.75, "unitat": "paquete", "ref": "8,75 €/kg"}]}, {"nom": "Aguacate en dados Hacendado congelado", "descripcio": "Paquete 500 g", "format": "congelat", "gluten": true, "quantitat": "500 g", "per": "Tacos dilluns", "escollit": "Mercadona", "categoria": "Congelados", "preus": [{"super": "Mercadona", "preu": 3.5, "unitat": "paquete", "ref": "7,00 €/kg"}]}, {"nom": "Cocktail frutos secos tostados con sal Hacendado", "descripcio": "Paquete 200 g", "format": "sec", "gluten": true, "quantitat": "200 g", "per": "Snack", "escollit": "Mercadona", "categoria": "Aperitivos", "preus": [{"super": "Mercadona", "preu": 2.65, "unitat": "paquete", "ref": "13,25 €/kg"}]}, {"nom": "Tomillo Hacendado", "descripcio": "Bote", "format": "sec", "gluten": true, "quantitat": "1", "per": "Crema freda", "escollit": "Mercadona", "categoria": "Aceite, especias y salsas", "preus": [{"super": "Mercadona", "preu": 1.05, "unitat": "bote", "ref": "4,38 €/kg"}]}, {"nom": "Aceitunas negras sin hueso Hacendado", "descripcio": "Bote", "format": "conserva", "gluten": true, "quantitat": "1", "per": "Crema freda", "escollit": "Mercadona", "categoria": "Aperitivos", "preus": [{"super": "Mercadona", "preu": 1.05, "unitat": "bote", "ref": "7,00 €/kg"}]}, {"nom": "Yogur griego natural Hacendado", "descripcio": "Pack", "format": "fresc", "gluten": true, "quantitat": "1 pack", "per": "Crema freda", "escollit": "Mercadona", "categoria": "Postres y yogures", "preus": [{"super": "Mercadona", "preu": 1.7, "unitat": "pack", "ref": "~3,40 €/kg"}]}, {"nom": "Papel de cocina", "descripcio": "Rollo", "format": "sec", "gluten": true, "quantitat": "1", "per": "Cuina", "escollit": "Mercadona", "categoria": "Droguería", "preus": [{"super": "Mercadona", "preu": 1.5, "unitat": "rollo", "ref": "~1,50 €"}]}, {"nom": "Tortillas de maíz nixtamalizado (La Jefa / Taxco)", "descripcio": "2×500 g (42 uds)", "format": "sec", "gluten": true, "quantitat": "1 pack", "per": "Tacos dilluns (només si no n'hi ha a casa)", "escollit": "Amazon", "categoria": "Llar i alimentació", "preus": [{"super": "Amazon", "preu": 15.99, "unitat": "42 uds", "ref": "ocasional"}]}];
+function escHTML(s){ return String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+/* ---------- Rendering llista ---------- */
+const listEl = document.getElementById("list");
+const boughtEl = document.getElementById("bought");
+let order = "super";
+let dir = 1;
+let firstRender = true;
+
+function tagHTML(it){
+  let h = "";
+  const f = FORMAT[it.format]||null;
+  if(f) h += `<span class="tag ${f.c}">${f.t}</span>`;
+  if(it.gluten === true) h += `<span class="tag nogluten">sense gluten</span>`;
+  else if(it.gluten === false) h += `<span class="tag gluten">conté gluten</span>`;
+  return h;
+}
+/* ---------- Categories ---------- */
+const CAT_ORDRE = ["Carn i aus","Peix i marisc","Ous i làctics","Charcutería i formatges",
+  "Verdures i hortalisses","Fruita","Llegums i cereals","Conserves","Congelats",
+  "Salses, olis i espècies","Pan, tortilles i masses","Aperitius i snacks","Begudes","Altres"];
+function normalCat(it){
+  const c = (it.categoria||"").toLowerCase();
+  const n = (it.nom||"").toLowerCase();
+  const FRUITES = /piña|plátano|banana|manzana|pera|naranja|mandarina|limón|lima|fresa|uva|melón|sandía|melocotón|nectarina|albaricoque|ciruela|cereza|mango|papaya|kiwi|aguacate|higo|granada|caqui|arándano|frambuesa|mora|dátil|coco|fresas|uvas|fruta/i;
+  const VERDURES = /tomate|lechuga|pepino|cebolla|ajo|pimiento|calabacín|zanahoria|calabaza|brócoli|coliflor|espinaca|patata|boniato|remolacha|puerro|berenjena|guisante|judía|alcachofa|espárrago|champiñón|seta|nabo|apio|perejil|cebollino|verdura|hortaliza|coles/i;
+  const rules = [
+    [/carn|vacuno|cerdo|pollo|pavo|ternera|hamburguesa|hamburgues|taco|picada/i, "Carn i aus"],
+    [/pescad|marisc|pescado|salmón|merluza|bacalao|atún|langostino|mejillón|calamar|gamba|musclo/i, "Peix i marisc"],
+    [/huevo|leche|mantequilla|làctic|huevos/i, "Ous i làctics"],
+    [/char|queso|embut|jamón|chorizo|salchich|formateg/i, "Charcutería i formatges"],
+    [/arroz|legumbre|garbanzo|lenteja|alubia|quinoa|cereal|couscous/i, "Llegums i cereals"],
+    [/conserva|tomate triturado|atún claro/i, "Conserves"],
+    [/congelado|congelada|congelats|helado/i, "Congelats"],
+    [/aceite|salsa|especia|vinagre|sal|aliño|tomates-y-salsas/i, "Salses, olis i espècies"],
+    [/pan|tortilla|masa|bollería|harina|pizza/i, "Pan, tortilles i masses"],
+    [/aperitiv|snack|aceituna|encurtido|frutos-secos/i, "Aperitius i snacks"],
+    [/agua|refresco|zumo|bebida|café|infusión/i, "Begudes"],
+  ];
+  for(const [re, g] of rules) if(re.test(c)) return g;
+  if(/fruta|frutas/.test(c) && /verdura|hortaliza/.test(c))
+    return FRUITES.test(n) && !VERDURES.test(n) ? "Fruita" : "Verdures i hortalisses";
+  if(/fruta|frutas/.test(c)) return "Fruita";
+  if(/verdura|hortaliza/.test(c)) return "Verdures i hortalisses";
+  if(FRUITES.test(n)) return "Fruita";
+  if(VERDURES.test(n)) return "Verdures i hortalisses";
+  return "Altres";
+}
+function priceHTML(it){
+  const rows = it.preus.map(p=>{
+    if(p.preu==null) return `<div class="row"><span class="sup${p.super===it.escollit?" escollit":""}">${p.super}</span><span class="preu">—</span></div>`;
+    const best = bestPrice(it)==p.preu;
+    const esc = p.super===it.escollit ? " escollit" : "";
+    const nota = p.unitat ? `<span class="nota"> · ${p.unitat}${p.ref?" · "+p.ref:""}</span>` : "";
+    return `<div class="row"><span class="sup${esc}">${p.super}</span><span class="preu ${best?"best":""}">${fmt(p.preu)}</span>${nota}</div>`;
+  }).join("");
+  return `<div class="prices">${rows}</div>`;
+}
+function bestPrice(it){
+  const vals = it.preus.map(p=>p.preu).filter(v=>v!=null);
+  return vals.length?Math.min(...vals):null;
+}
+function fmt(v){ return v.toFixed(2).replace(".",",") + " €"; }
+function renderList(){
+  const done = state.done||{};
+  const items = [...LLISTA];
+  const dirn = dir;
+  if(order==="categoria"){
+    items.sort((a,b)=>{
+      const ga=CAT_ORDRE.indexOf(normalCat(a)), gb=CAT_ORDRE.indexOf(normalCat(b));
+      if(ga!==gb) return (ga<0?999:ga)-(gb<0?999:gb);
+      const ca=(a.categoria||"").localeCompare(b.categoria||"");
+      if(ca!==0) return ca;
+      return (a.escollit||"").localeCompare(b.escollit||"") || a.nom.localeCompare(b.nom);
+    });
+  } else if(order==="super"){
+    const gid = c => { const i = CAT_ORDRE.indexOf(normalCat(c)); return i<0?999:i; };
+    items.sort((a,b)=> (a.escollit||"").localeCompare(b.escollit||"")*dirn
+      || (gid(a)-gid(b))
+      || (a.categoria||"").localeCompare(b.categoria||"")
+      || a.nom.localeCompare(b.nom));
+  } else if(order==="preuAsc"){
+    const pa=a=>a.preus.map(p=>p.preu).filter(v=>v!=null);
+    items.sort((a,b)=>{ const ma=Math.min(...pa(a).concat([1e9])), mb=Math.min(...pa(b).concat([1e9]));
+      return (ma-mb)||a.nom.localeCompare(b.nom); });
+  } else if(order==="preuDesc"){
+    const pa=a=>a.preus.map(p=>p.preu).filter(v=>v!=null);
+    items.sort((a,b)=>{ const ma=Math.max(...pa(a).concat([0])), mb=Math.max(...pa(b).concat([0]));
+      return (mb-ma)||a.nom.localeCompare(b.nom); });
+  } else {
+    items.sort((a,b)=>a.nom.localeCompare(b.nom));
+  }
+  const todo = items.filter(i=>!done[i.nom]);
+  const bought = items.filter(i=>done[i.nom]);
+  renderSums();
+  listEl.innerHTML = groupHTML(todo) || `<div class="empty">Res per comprar. Tot a punt!</div>`;
+  boughtEl.innerHTML = groupHTML(bought) || `<div class="empty">Cap producte marcat com a comprat.</div>`;
+  if(firstRender){
+    const els = document.querySelectorAll("#list .item, #bought .item");
+    els.forEach((el,i)=>{
+      el.style.animation = `itemIn .45s cubic-bezier(.2,.7,.3,1) both`;
+      el.style.animationDelay = Math.min(i*26, 400)+"ms";
+    });
+    firstRender = false;
+  }
+}
+function groupHTML(items){
+  if(!items.length) return "";
+  const groupKey = it => order==="categoria" ? normalCat(it)
+    : order==="super" ? (it.escollit||"Altres") + " ▸ " + (it.categoria||"")
+    : "";
+  const groups = [];
+  let lastKey = null;
+  for(const it of items){
+    const k = groupKey(it);
+    if(k !== lastKey){ groups.push({key:k, items:[]}); lastKey = k; }
+    groups[groups.length-1].items.push(it);
+  }
+  return groups.map(g=>{
+    if(!g.key) return g.items.map(itemHTML).join("");
+    const sub = order==="super" ? g.key.split(" ▸ ") : [g.key, ""];
+    const label = order==="super" ? `<b>${sub[0]}</b> — ${sub[1]}` : g.key;
+    return `<div class="cat-header">${label}</div>` + g.items.map(itemHTML).join("");
+  }).join("");
+}
+function itemHTML(it){
+  const done = state.done||{};
+  return `<div class="item${done[it.nom]?" checked":""}" data-nom="${it.nom}">
+    <input type="checkbox" ${done[it.nom]?"checked":""} onchange="toggle(this)">
+    <div class="body">
+      <div class="nom">${it.nom}</div>
+      ${it.descripcio?`<div class="descr">${it.descripcio}</div>`:""}
+      ${it.per?`<div class="per">${it.per}</div>`:""}
+      <div class="tags">${tagHTML(it)}${it.quantitat?`<span class="tag qty">${it.quantitat}</span>`:""}</div>
+      ${priceHTML(it)}
+      ${it.escollit?`<div class="choose"><span class="chosen">comprar a ${it.escollit}</span></div>`:""}
+    </div>
+  </div>`;
+}
+function toggle(cb){
+  state.done = state.done||{};
+  const nom = cb.closest(".item").dataset.nom;
+  if(cb.checked) state.done[nom]=true; else delete state.done[nom];
+  saveState(state); renderList();
+}
+function renderSums(){
+  const done = state.done||{};
+  const sums = {};
+  for(const s of SUPERMERCATS) sums[s]={tot:0, done:0, doneV:0};
+  let gTot=0;
+  for(const it of LLISTA){
+    const p = it.preus.find(x=>x.super===it.escollit);
+    if(p && p.preu!=null){ sums[it.escollit].tot+=p.preu; gTot+=p.preu;
+      if(done[it.nom]){ sums[it.escollit].doneV+=p.preu; sums[it.escollit].done++; } }
+  }
+  document.getElementById("sums").innerHTML = SUPERMERCATS.map(s=>
+    `<span class="sum"><span class="sum-l">${s}</span><b>${fmt(sums[s].tot)}</b></span>`).join("")
+    + `<span class="sum sum-tot"><span class="sum-l">Total</span><b>${fmt(gTot)}</b></span>`;
+}
+
+/* ---------- Sobrants ---------- */
+const SOBRANTS = [{"nom": "Llenties amb xoriço i costella", "ubicacio": "nevera", "racions": 4, "data_limita": "2026-09-09", "desti": "Dinar dilluns 7"}, {"nom": "Tacos de carn", "ubicacio": "nevera", "racions": 3, "data_limita": "2026-09-10", "desti": "Dinar dimarts 8"}];
+function renderSobrants(){
+  const el = document.getElementById("sobrants");
+  if(!el) return;
+  if(!SOBRANTS || SOBRANTS.length===0){
+    el.innerHTML = `<div class="empty">Cap sobrant pendent — cuinar fresc 🎉</div>`;
+    return;
+  }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const totime = ms => Math.ceil(ms/86400000);
+  el.innerHTML = SOBRANTS.map(s=>{
+    const dead = s.data_limita ? new Date(s.data_limita+"T00:00:00") : null;
+    let dl = "", cls = "";
+    if(dead){
+      const d = totime(dead - today);
+      if(d < 0) { cls = "urgent"; dl = "⚠ caducat"; }
+      else if(d === 0) { cls = "urgent"; dl = "avui!"; }
+      else if(d === 1) { cls = "darrere"; dl = "demà"; }
+      else { dl = `${d} dies`; }
+    }
+    const ubi = s.ubicacio==="congelador" ? "congelador" : "nevera";
+    return `<div class="sobrant">
+  <div><div class="nom">${escHTML(s.nom||"")}</div>
+  <div class="meta">${s.racions?`${s.racions} racions`:"1 ració"}${s.desti?` · → ${escHTML(s.desti)}`:""}</div></div>
+  <span class="ubi ${ubi}">${ubi}</span>
+  ${dl?`<span class="deadline ${cls}">${dl}</span>`:""}
+</div>`;
+  }).join("");
+}
+renderSobrants();
+
+/* ---------- Tabs ---------- */
+function showTab(id, btn){
+  document.querySelectorAll("section").forEach(s=>s.classList.toggle("active", s.id===id));
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active", b===btn));
+}
+document.querySelectorAll(".tabs button").forEach(b=>{
+  b.addEventListener("click", ()=>showTab(b.dataset.tab, b));
+});
+
+/* ---------- Controls ---------- */
+const sel = document.getElementById("orderSel");
+if(sel){
+  sel.addEventListener("change", ()=>{ order=sel.value; dir = order==="preuDesc"?-1:1; renderList(); });
+}
+
+/* ---------- Sincronització (GitHub API) ---------- */
+const SYNC_REPO = "carlessp/menuSetmanal";   // "owner/repo"
+const SYNC_BRANCH = "main"; // "main"
+const SYNC_PATH = "sync/menu-2026-09-05.json";    // "sync/<storage_key>.json"
+const SYNC_TOKEN_KEY = "gh_sync_token";
+const syncBtn = document.getElementById("syncBtn");
+const syncMsgEl = document.getElementById("syncMsg");
+function syncMsg(text, cls){
+  if(syncMsgEl){ syncMsgEl.textContent = text; syncMsgEl.className = "sync-msg " + (cls||""); }
+  if(text && !cls){ syncMsgEl.className = "sync-msg ok"; }
+}
+function getToken(){
+  let t = localStorage.getItem(SYNC_TOKEN_KEY);
+  if(!t){ t = prompt("Token d'accés personal de GitHub (repo scope). Sense token no es pot sincronitzar. Només es guarda en aquest dispositiu (localStorage)."); if(t) localStorage.setItem(SYNC_TOKEN_KEY, t.trim()); }
+  return t;
+}
+function tokenInvalid(status){
+  if(status===401 || status===403){
+    localStorage.removeItem(SYNC_TOKEN_KEY);
+    if(resetTokenBtn) resetTokenBtn.style.display = "inline-block";
+    return true;
+  }
+  return false;
+}
+const resetTokenBtn = document.getElementById("resetTokenBtn");
+if(resetTokenBtn){
+  resetTokenBtn.addEventListener("click", ()=>{
+    localStorage.removeItem(SYNC_TOKEN_KEY);
+    resetTokenBtn.style.display = "none";
+    syncMsg("Token esborrat. Prem '⟳ Sincronitza' per posar-ne un de nou.");
+    getToken();
+  });
+}
+function b64decode(s){
+  try{ return decodeURIComponent(escape(atob(s))); }catch(e){ try{ return atob(s); }catch(_){ return ""; } }
+}
+async function ghGet(path, token){
+  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}?ref=${SYNC_BRANCH}`;
+  const r = await fetch(url, { headers:{ "Authorization":`token ${token}` } });
+  if(r.status===404) return { data:null, sha:null };
+  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); const j = await r.json().catch(()=>({})); throw new Error(j.message || ("HTTP "+r.status)); }
+  const j = await r.json();
+  return { data: j.content ? JSON.parse(b64decode(j.content)) : null, sha: j.sha };
+}
+async function ghPut(path, content, sha, token){
+  const url = `https://api.github.com/repos/${SYNC_REPO}/contents/${path}`;
+  const body = {
+    message: `sync ${path}`,
+    branch: SYNC_BRANCH,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))), // base64 utf-8
+  };
+  if(sha) body.sha = sha;
+  const r = await fetch(url, { method:"PUT", headers:{ "Authorization":`token ${token}`, "Content-Type":"application/json" }, body: JSON.stringify(body) });
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok){ if(tokenInvalid(r.status)) throw new Error("Token invàlid o sense permís. L'he esborrat: prem 'Oblida token' i posa'n un de nou."); const e = new Error(j.message || ("HTTP "+r.status)); e.status = r.status; throw e; }
+  return j;
+}
+let syncing = false;
+async function doSync(){
+  if(!syncBtn || syncing) return;
+  syncing = true;
+  syncBtn.disabled = true;
+  syncMsg("Sincronitzant...");
+  try{
+    const token = getToken();
+    if(!token){ syncMsg("Cal un token per sincronitzar. Torna-ho a provar.", "err"); return; }
+    const MAX_ATTEMPTS = 6;
+    const sleep = ms => new Promise(r=>setTimeout(r, ms));
+    let lastErr = null;
+    for(let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++){
+      let remote;
+      try{
+        remote = await ghGet(SYNC_PATH, token);   // {data, sha} via Contents API (sense caché)
+      }catch(e){
+        lastErr = e;
+        syncMsg("No es pot llegir el núvol. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
+        await sleep(300);
+        continue;
+      }
+      const local = loadState();
+      const remoteNewer = remote.data && (remote.data.updated||0) > (local.updated||0);
+      let winner, from;
+      if(remoteNewer){
+        winner = remote.data;                // el núvol és més recent → sobreescriu
+        from = "cloud";
+      }else{
+        winner = local;                      // aquest dispositiu és igual o més recent → puja
+        from = "local";
+      }
+      let payload;
+      if(from==="local"){ saveState(winner); payload = winner; }   // updated=ara; es desa i es puja el mateix
+      else { payload = winner; localStorage.setItem(KEY, JSON.stringify(winner)); } // preserva el timestamp remot
+      state = payload;
+      try{
+        await ghPut(SYNC_PATH, payload, remote.sha, token); // puja exactament el que s'ha desat
+        renderList();
+        syncMsg(from==="cloud"
+          ? "✓ He rebut l'estat de l'altre dispositiu."
+          : "✓ Sincronitzat. Aquest dispositiu i el núvol coincideixen.", "ok");
+        return;
+      }catch(e){
+        // Conflicte de concurrència (status 422): un altre dispositiu ha modificat
+        // el fitxer entre el GET i el PUT. Re-llegim el núvol i reintentem.
+        if(e.status===422){
+          // Si el núvol ja conté exactament el que volíem pujar, ja està fet.
+          const remote2 = await ghGet(SYNC_PATH, token).catch(()=>null);
+          if(remote2 && remote2.data && JSON.stringify(remote2.data)===JSON.stringify(payload)){
+            localStorage.setItem(KEY, JSON.stringify(remote2.data));
+            state = remote2.data;
+            renderList();
+            syncMsg("✓ Ja estava al núvol (un altre dispositiu ho havia pujat).", "ok");
+            return;
+          }
+          if(attempt < MAX_ATTEMPTS){
+            syncMsg("Conflicte amb un altre dispositiu. Reintentant ("+attempt+"/"+MAX_ATTEMPTS+")...");
+            await sleep(250*attempt);
+            continue;
+          }
+        }
+        lastErr = e;
+        break;
+      }
+    }
+    syncMsg("Error de sincronització: " + (lastErr ? (lastErr.message||lastErr) : "conflicte persistent entre dispositius. Torna-ho a provar en uns segons."), "err");
+  }finally{
+    syncing = false;
+    syncBtn.disabled = false;
+  }
+}
+if(syncBtn) syncBtn.addEventListener("click", doSync);
+
+function autoSync(){
+  if(!syncBtn || !localStorage.getItem(SYNC_TOKEN_KEY)) return;
+  syncMsg("Sincronitzant...");
+  doSync();
+}
+window.addEventListener("load", ()=> setTimeout(autoSync, 400));
+
+renderList();
+</script>
+</body>
+</html>
